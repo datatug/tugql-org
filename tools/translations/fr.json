@@ -1,4 +1,5 @@
 {
+  "feedback": "Proposer une amélioration",
   "meta": {
     "title": "TugQL — un langage de requête portable et lisible par les humains",
     "description": "TugQL est un langage de requête portable et lisible par les humains. Une même requête s’exécute sans modification sur Git, SQLite, PostgreSQL et Firestore — syntaxe textuelle type SQL et arbre de requêtes sans perte (TugQT).",

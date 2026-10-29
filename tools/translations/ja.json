@@ -1,4 +1,5 @@
 {
+  "feedback": "改善を提案",
   "meta": {
     "title": "TugQL — ポータブルで人間が読みやすいクエリ言語",
     "description": "TugQLはポータブルで人間が読みやすいクエリ言語です。Git、SQLite、PostgreSQL、Firestore上でクエリがそのまま動作し、直感的なSQL風構文とスキーマ検証済みのロスレスなクエリツリー（TugQT）を備えています。",

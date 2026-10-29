@@ -1,4 +1,5 @@
 {
+  "feedback": "Sugerir una mejora",
   "meta": {
     "title": "TugQL — un lenguaje de consulta portátil y legible por humanos",
     "description": "TugQL es un lenguaje de consulta portátil y legible por humanos. Una consulta se ejecuta sin cambios en Git, SQLite, PostgreSQL y Firestore, con sintaxis limpia tipo SQL y un árbol de consulta sin pérdidas validado por esquema (TugQT).",

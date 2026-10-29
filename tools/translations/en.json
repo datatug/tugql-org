@@ -1,4 +1,5 @@
 {
+  "feedback": "Suggest an improvement",
   "meta": {
     "title": "TugQL — a portable, human-readable query language",
     "description": "TugQL is a portable, human-readable query language. One query runs unchanged across Git, SQLite, PostgreSQL and Firestore — featuring an intuitive SQL-like text syntax and a lossless, schema-validated query tree (TugQT).",

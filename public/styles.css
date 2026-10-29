@@ -845,6 +845,20 @@ code, pre, kbd { font-family: var(--f-mono); }
 .AppFooter ul a { color: var(--accent-fg); }
 .AppFooter-tag { font-size: 12px; color: var(--fg-subtle); }
 
+/* Custom feedback trigger; the SDK owns the modal and focus restoration. */
+.site-feedback {
+  position: fixed;
+  bottom: max(18px, env(safe-area-inset-bottom));
+  left: max(18px, env(safe-area-inset-left));
+  z-index: 110;
+  max-width: calc(100vw - 36px);
+  min-height: 44px;
+  height: auto;
+  white-space: normal;
+  box-shadow: 0 3px 12px rgba(31, 35, 40, .18);
+}
+.site-feedback[hidden] { display: none; }
+
 /* ============================================================
    a11y
    ============================================================ */
