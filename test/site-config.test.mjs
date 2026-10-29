@@ -50,6 +50,9 @@ describe('tugql.org is served as static assets only', () => {
 
       // One SDK and one accessible, localized custom trigger per generated page.
       assert.equal((html.match(/src="https:\/\/improveit\.now\/widget\.js"/g) || []).length, 1);
+      const triggerTag = html.match(/<button[^>]*data-feedback-launcher[^>]*>/)?.[0];
+      assert.match(triggerTag, /\baria-haspopup="dialog"/);
+      assert.match(triggerTag, /\bhidden(?:\s|>)/);
       const trigger = html.match(/<button[^>]*data-feedback-launcher[^>]*>(.*?)<\/button>/s)?.[1];
       assert.ok(trigger, `missing feedback trigger for ${lang.code}`);
       assert.match(trigger, /<svg class="feedback-mark" aria-hidden="true" focusable="false"/);
