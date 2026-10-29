@@ -1,4 +1,5 @@
 {
+  "feedback": "提出改进建议",
   "meta": {
     "title": "TugQL — 便携、易于人类阅读的查询语言",
     "description": "TugQL是一种便携、易于人类阅读的查询语言。同一查询无需修改即可在 Git、SQLite、PostgreSQL 和 Firestore 上运行——兼具直观的类 SQL 文本语法与经模式验证的无损查询树（TugQT）。",

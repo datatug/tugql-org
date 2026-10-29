@@ -1,4 +1,5 @@
 {
+  "feedback": "İyileştirme öner",
   "meta": {
     "title": "TugQL — taşınabilir, insan tarafından okunabilir sorgu dili",
     "description": "TugQL, taşınabilir ve insan tarafından okunabilir bir sorgu dilidir. Tek bir sorgu Git, SQLite, PostgreSQL ve Firestore üzerinde değişmeden çalışır — sezgisel SQL benzeri metin sözdizimi ve şema doğrulamalı kayıpsız sorgu ağacı (TugQT) sunar.",

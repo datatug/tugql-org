@@ -1,4 +1,5 @@
 {
+  "feedback": "개선 제안하기",
   "meta": {
     "title": "TugQL — 이식 가능하고 사람이 읽기 쉬운 쿼리 언어",
     "description": "TugQL은 이식 가능하고 사람이 읽기 쉬운 쿼리 언어입니다. 직관적인 SQL 유사 텍스트 구문과 스키마 검증을 거친 무손실 쿼리 트리(TugQT)를 통해 단 하나의 쿼리가 Git, SQLite, PostgreSQL, Firestore에서 그대로 실행됩니다.",
