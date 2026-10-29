@@ -827,6 +827,8 @@ code, pre, kbd { font-family: var(--f-mono); }
 .AppFooter {
   border-top: 1px solid var(--border-default);
   padding: 40px 0 32px;
+  /* Reserve the fixed trigger's 44px height and bottom inset below footer links. */
+  padding-bottom: calc(76px + max(18px, env(safe-area-inset-bottom)));
   background: var(--canvas-subtle);
 }
 .AppFooter-inner {
