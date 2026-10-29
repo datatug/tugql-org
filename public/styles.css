@@ -827,7 +827,7 @@ code, pre, kbd { font-family: var(--f-mono); }
 .AppFooter {
   border-top: 1px solid var(--border-default);
   padding: 40px 0 32px;
-  /* Reserve the fixed trigger's 44px height and bottom inset below footer links. */
+  /* Reserve the fixed trigger's 48px height and bottom inset below footer links. */
   padding-bottom: calc(76px + max(18px, env(safe-area-inset-bottom)));
   background: var(--canvas-subtle);
 }
@@ -848,18 +848,7 @@ code, pre, kbd { font-family: var(--f-mono); }
 .AppFooter-tag { font-size: 12px; color: var(--fg-subtle); }
 
 /* Custom feedback trigger; the SDK owns the modal and focus restoration. */
-.site-feedback {
-  position: fixed;
-  bottom: max(18px, env(safe-area-inset-bottom));
-  left: max(18px, env(safe-area-inset-left));
-  z-index: 110;
-  max-width: calc(100vw - 36px);
-  min-height: 44px;
-  height: auto;
-  white-space: normal;
-  box-shadow: 0 3px 12px rgba(31, 35, 40, .18);
-}
-.site-feedback[hidden] { display: none; }
+
 
 /* ============================================================
    a11y
@@ -870,4 +859,38 @@ code, pre, kbd { font-family: var(--f-mono); }
     transition-duration: .001ms !important;
     scroll-behavior: auto !important;
   }
+}
+/* ImproveIt launcher: a quiet branded surface with a clearly visible mark. */
+.site-feedback {
+  position: fixed;
+  right: max(18px, env(safe-area-inset-right));
+  bottom: max(18px, env(safe-area-inset-bottom));
+  z-index: 110;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  max-width: calc(100vw - 36px);
+  min-height: 48px;
+  height: auto;
+  padding: 8px 16px 8px 9px;
+  border: 1px solid #b4ca9e;
+  border-radius: 999px;
+  background: #f1f8e7;
+  color: #254332;
+  font: 600 14px/1.4 system-ui, sans-serif;
+  white-space: normal;
+  box-shadow: 0 2px 8px rgba(25, 48, 34, .12);
+  cursor: pointer;
+  transition: none;
+}
+.site-feedback[hidden] { display: none; }
+.site-feedback:hover { background: #e7f2d8; color: #254332; border-color: #86a477; }
+.site-feedback:focus-visible { outline: 3px solid #416b48; outline-offset: 3px; }
+.site-feedback .feedback-mark { flex: 0 0 30px; width: 30px; height: 30px; }
+@media (prefers-color-scheme: dark) {
+  .site-feedback { background: #293d32; color: #e2efd4; border-color: #6d8a65; box-shadow: 0 2px 8px rgba(0, 0, 0, .2); }
+  .site-feedback:hover { background: #344c3c; color: #e2efd4; border-color: #8aa47b; }
+  .site-feedback:focus-visible { outline-color: #b3d795; }
+  .site-feedback .feedback-mark rect { fill: #9bb67b; }
 }
