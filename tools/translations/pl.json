@@ -23,6 +23,7 @@
     "lede": "<strong>TugQL</strong> to przenośny, czytelny dla człowieka język zapytań. Łączy przejrzystą, zbliżoną do SQL składnię z <strong>bezstratną reprezentacją 1:1</strong> w postaci ustrukturyzowanego drzewa zapytań (<strong>TugQT</strong>) serializowanego jako czysty YAML/JSON. Zapisz zapytanie, edytuj je ręcznie, porównuj diff w systemie kontroli wersji i wykonuj na różnych backendach bez żadnych strat.",
     "readSpec": "Przeczytaj specyfikację",
     "seeExample": "Zobacz przykład",
+    "tryInDataTug": "Wypróbuj w DataTug.app",
     "codeSampleAria": "Dokument zapytania TugQL"
   },
   "why": {

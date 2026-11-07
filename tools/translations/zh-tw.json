@@ -23,6 +23,7 @@
     "lede": "<strong>TugQL</strong> 是一種便攜、易於人類閱讀的查詢語言。它將簡潔的類 SQL 文字語法與以純 YAML/JSON 序列化的 <strong>1:1 無損</strong>結構化查詢樹（<strong>TugQT</strong>）相結合。您可以儲存查詢、手動編輯、在版本控制中比對差異，並在不同的後端無損執行。",
     "readSpec": "閱讀規範",
     "seeExample": "查看範例",
+    "tryInDataTug": "在 DataTug.app 中試用",
     "codeSampleAria": "TugQL 查詢文件"
   },
   "why": {

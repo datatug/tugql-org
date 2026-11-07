@@ -23,6 +23,7 @@
     "lede": "<strong>TugQL</strong> ist eine portable, menschenlesbare Abfragesprache. Sie kombiniert eine saubere SQL-ähnliche Textsyntax mit einer <strong>verlustfreien 1:1</strong>-Darstellung als strukturierter Abfragebaum (<strong>TugQT</strong>), serialisiert in einfachem YAML/JSON. Speichern Sie eine Abfrage, bearbeiten Sie sie von Hand, überprüfen Sie Diffs in der Versionskontrolle und führen Sie sie verlustfrei über verschiedene Backends aus.",
     "readSpec": "Spezifikation lesen",
     "seeExample": "Beispiel ansehen",
+    "tryInDataTug": "In DataTug.app ausprobieren",
     "codeSampleAria": "Ein TugQL-Abfragedokument"
   },
   "why": {

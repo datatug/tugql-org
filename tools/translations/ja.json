@@ -23,6 +23,7 @@
     "lede": "<strong>TugQL</strong>は、ポータブルで人間が読みやすいクエリ言語です。洗練されたSQL風テキスト構文と、プレーンなYAML/JSONとしてシリアライズ可能な<strong>1:1完全ロスレス</strong>の構造化クエリツリー（<strong>TugQT</strong>）を融合。クエリを保存し、手作業で編集し、バージョン管理で差分を確認し、複数のバックエンドで情報の欠落なく実行できます。",
     "readSpec": "仕様を読む",
     "seeExample": "例を見る",
+    "tryInDataTug": "DataTug.app で試す",
     "codeSampleAria": "TugQLクエリドキュメント"
   },
   "why": {

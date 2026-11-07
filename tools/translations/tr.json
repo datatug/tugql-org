@@ -23,6 +23,7 @@
     "lede": "<strong>TugQL</strong>, taşınabilir ve insan tarafından okunabilir bir sorgu dilidir. Sade, SQL benzeri metin sözdizimini, düz YAML/JSON olarak serileştirilen <strong>1:1 kayıpsız</strong> yapılandırılmış sorgu ağacı (<strong>TugQT</strong>) ile birleştirir. Bir sorguyu kaydedin, elle düzenleyin, versiyon kontrolünde diff alın ve herhangi bir veri kaybı yaşamadan farklı veritabanlarında çalıştırın.",
     "readSpec": "Şartnameyi oku",
     "seeExample": "Örneğe göz at",
+    "tryInDataTug": "DataTug.app'te dene",
     "codeSampleAria": "Bir TugQL sorgu belgesi"
   },
   "why": {
