@@ -146,21 +146,29 @@
         <span class="codeblock-dot" style="background:#ff5f57"></span>
         <span class="codeblock-dot" style="background:#febc2e"></span>
         <span class="codeblock-dot" style="background:#28c840"></span>
-        <span class="codeblock-name">query.tugql</span>
+        <span class="codeblock-name">sales-by-country.tugql</span>
         <span class="codeblock-lang">TugQL</span>
       </div>
-<pre><code><span class="pl-k">from</span> users <span class="pl-k">as</span> u
-<span class="pl-k">select</span>
-  u.name,
-  u.age <span class="pl-k">as</span> years
-<span class="pl-k">where</span>
-  u.age &gt;= <span class="pl-c1">18</span>
-  <span class="pl-k">and</span> (u.status <span class="pl-k">in</span> (<span class="pl-s">'active'</span>, <span class="pl-s">'pending'</span>) <span class="pl-k">or</span> u.country == <span class="pl-s">'US'</span>)
-<span class="pl-k">order by</span>
-  u.name,
-  u.age <span class="pl-k">desc</span>
-<span class="pl-k">limit</span> <span class="pl-c1">10</span>
-<span class="pl-k">offset</span> <span class="pl-c1">20</span></code></pre>
+<pre><code><span class="pl-c">-- one query, two databases</span>
+<span class="pl-k">databases</span> (
+  sales = <span class="pl-s">&#39;datatug://chinook/sales?env=prod&#39;</span>
+  geo   = <span class="pl-s">&#39;datatug://world/countries&#39;</span>
+)
+<span class="pl-k">with</span> BigInvoices <span class="pl-k">as</span> (
+  <span class="pl-k">from</span> sales::Invoice <span class="pl-k">as</span> i
+  <span class="pl-k">where</span> i.Total &gt; <span class="pl-c1">10</span>
+  <span class="pl-k">select</span> i.BillingCountry, i.Total
+)
+<span class="pl-k">from</span> BigInvoices <span class="pl-k">as</span> b
+<span class="pl-k">join</span> geo::Country <span class="pl-k">as</span> c
+  <span class="pl-k">on</span> b.BillingCountry = c.Name
+<span class="pl-k">group by</span> c.Name
+<span class="pl-k">having</span> SUM(b.Total) &gt;= <span class="pl-c1">1000</span>
+<span class="pl-k">order by</span> c.Name <span class="pl-k">asc</span>
+<span class="pl-k">select</span> (
+  c.Name <span class="pl-k">as</span> Country
+  SUM(b.Total) <span class="pl-k">as</span> TotalSales
+)</code></pre>
     </div>
 
   </div>
