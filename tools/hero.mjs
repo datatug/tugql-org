@@ -8,23 +8,16 @@ databases (
   chinook = 'https://cloud.openvaultdb.com/v1/databases/chinook'
   geo     = 'https://github.com/ingitdb/geo-ingitdb'
 )
-with Sales as (
-  from chinook::Invoice as i
-  group by i.BillingCountry
-  select (
-    i.BillingCountry as Country
-    SUM(i.Total) as Total
-  )
-)
-from Sales as s
+from chinook::Invoice as i
 join geo::country_aliases as a
-  on s.Country = a.alias
+  on i.BillingCountry = a.alias
 join geo::population_wb as p
   on a.country = p.country
-order by s.Total desc
+group by i.BillingCountry, p.population
+order by Total desc
 select (
-  s.Country
-  s.Total
+  i.BillingCountry as Country
+  SUM(i.Total) as Total
   p.population as Population
 )`;
 

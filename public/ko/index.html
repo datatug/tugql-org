@@ -154,27 +154,20 @@
   chinook = <span class="pl-s">&#39;https://cloud.openvaultdb.com/v1/databases/chinook&#39;</span>
   geo     = <span class="pl-s">&#39;https://github.com/ingitdb/geo-ingitdb&#39;</span>
 )
-<span class="pl-k">with</span> Sales <span class="pl-k">as</span> (
-  <span class="pl-k">from</span> chinook::Invoice <span class="pl-k">as</span> i
-  <span class="pl-k">group</span> <span class="pl-k">by</span> i.BillingCountry
-  <span class="pl-k">select</span> (
-    i.BillingCountry <span class="pl-k">as</span> Country
-    SUM(i.Total) <span class="pl-k">as</span> Total
-  )
-)
-<span class="pl-k">from</span> Sales <span class="pl-k">as</span> s
+<span class="pl-k">from</span> chinook::Invoice <span class="pl-k">as</span> i
 <span class="pl-k">join</span> geo::country_aliases <span class="pl-k">as</span> a
-  <span class="pl-k">on</span> s.Country = a.alias
+  <span class="pl-k">on</span> i.BillingCountry = a.alias
 <span class="pl-k">join</span> geo::population_wb <span class="pl-k">as</span> p
   <span class="pl-k">on</span> a.country = p.country
-<span class="pl-k">order</span> <span class="pl-k">by</span> s.Total <span class="pl-k">desc</span>
+<span class="pl-k">group</span> <span class="pl-k">by</span> i.BillingCountry, p.population
+<span class="pl-k">order</span> <span class="pl-k">by</span> Total <span class="pl-k">desc</span>
 <span class="pl-k">select</span> (
-  s.Country
-  s.Total
+  i.BillingCountry <span class="pl-k">as</span> Country
+  SUM(i.Total) <span class="pl-k">as</span> Total
   p.population <span class="pl-k">as</span> Population
 )</code></pre>
       <div class="codeblock-foot">
-        <a class="btn btn-primary btn-sm" href="https://datatug.app/try#tugql=H4sIAAAAAAAAE2VQPW_DIBDd-RW3OZZqUFdLWdqpQ6VKaecIA41pCEcN2PK_L-DYsVSmd3r3Po6mAbQKfqMa5icIE4LkgXfcK082BAcCIHptEa9whKoPwfmWMWEwSopO2ZFHE2RHBd7Y-Mw2JburqmRwUQj57QwuOvRxUWmbBtmxtNXccUVqMqUNOHGTSvClx_eAt7VM277ZEbVQmdQ5Y8DooJtB0xdtTDJ6xWjDMCfOK6NEKB7wj88Gj1WA09f7QdNPDNzUmSsoMXXqVBpsnTz5QW3zdW0rFoczN7r8W6J5EqEFT9egI3Ba-J3OoYuGB432PHVZ5RYVp2JTuRUTHKQa8pF-KQhSeUF2521hBa_VHX3E5IyPbSL1H6h0Na8HAgAA" target="_blank" rel="noopener" data-try-in-datatug>
+        <a class="btn btn-primary btn-sm" href="https://datatug.app/try#tugql=H4sIAAAAAAAAE2WQzW7DIBCE7zzF3hxLMahXS720px4qVWp7jjBQm4awlB9HfvuC7TiWwmnYnW8G0TSAVsFfUn46QrwiSB55x4MKZFNwIABi0BbxDM9QDTG60DImDCZJ0Sk78mSi7KjACxuf2EaylapyQK8QytkF9DoOaaG0zRfZsexqVl2Rmvx4vNyq2_bNjqiFAh5Ak1_UtoS2rcBko59O3Oj5uXnNcyFa0PRFG5PzXhdLLud0tu1why4ZHjXa07UrsFtgTsVGuZsmvcfkoJseso_ZdI8i6KXyxfeFkRuQKggSlFEizt_58LLcu8q8_fx-P2g6k3XZzCrP9w1l_nHvq_8BdkW5jssBAAA" target="_blank" rel="noopener" data-try-in-datatug>
           DataTug.app에서 실행해 보기
           <svg class="octicon" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg>
         </a>
