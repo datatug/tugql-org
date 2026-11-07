@@ -2,7 +2,7 @@
   "feedback": "Verbesserung vorschlagen",
   "meta": {
     "title": "TugQL — eine portable, menschenlesbare Abfragesprache",
-    "description": "TugQL ist eine portable, menschenlesbare Abfragesprache. Eine Abfrage läuft unverändert auf Git, SQLite, PostgreSQL und Firestore — mit intuitiver SQL-ähnlicher Textsyntax und verlustfreiem Abfragebaum (TugQT).",
+    "description": "TugQL ist eine portable, lesbare Abfragesprache. SQL-ähnlicher Text und ein verlustfreier TugQT-Baum laufen auf Git, SQLite, PostgreSQL und Firestore.",
     "ogDescription": "TugQL: portable, menschenlesbare Abfragesprache und strukturierter Abfragebaum (TugQT) über mehrere Backends.",
     "jsonLdDescription": "Eine portable, menschenlesbare Abfragesprache und strukturierter Abfragebaum (TugQT) für Datenbanken und Datenabstraktionsschichten."
   },

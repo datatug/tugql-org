@@ -2,7 +2,7 @@
   "feedback": "改善を提案",
   "meta": {
     "title": "TugQL — ポータブルで人間が読みやすいクエリ言語",
-    "description": "TugQLはポータブルで人間が読みやすいクエリ言語です。Git、SQLite、PostgreSQL、Firestore上でクエリがそのまま動作し、直感的なSQL風構文とスキーマ検証済みのロスレスなクエリツリー（TugQT）を備えています。",
+    "description": "TugQLは移植可能で人間が読みやすいクエリ言語です。SQLに似たテキスト構文と損失のない構造化クエリ木TugQTを備え、同じクエリをGit、SQLite、PostgreSQL、Firestoreで変更せず実行できます。言語仕様は公開リポジトリで公開されています。",
     "ogDescription": "TugQL: 複数バックエンドに対応するポータブルで可読性の高いクエリ言語と構造化クエリツリー（TugQT）。",
     "jsonLdDescription": "データベースおよびデータ抽象化レイヤー向けのポータブルで人間が読みやすいクエリ言語および構造化クエリツリー（TugQT）。"
   },

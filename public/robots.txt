@@ -1,4 +1,25 @@
+# Every crawler is allowed, including AI crawlers that are not named below.
 User-agent: *
+Allow: /
+
+# A named group replaces the * group for that agent, so these AI crawlers
+# are allowed explicitly rather than left to inherit an empty rule.
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: OAI-SearchBot
+User-agent: Google-Extended
+User-agent: ClaudeBot
+User-agent: Claude-User
+User-agent: Claude-SearchBot
+User-agent: anthropic-ai
+User-agent: PerplexityBot
+User-agent: Applebot-Extended
+User-agent: Amazonbot
+User-agent: CCBot
+User-agent: Bytespider
+User-agent: Meta-ExternalAgent
+User-agent: cohere-ai
+User-agent: Diffbot
 Allow: /
 
 Sitemap: https://tugql.org/sitemap.xml
