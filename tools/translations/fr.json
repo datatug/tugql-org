@@ -23,6 +23,7 @@
     "lede": "<strong>TugQL</strong> est un langage de requête portable et lisible par les humains. Il associe une syntaxe textuelle épurée inspirée du SQL à une représentation arborescente structurée <strong>1:1 et sans perte</strong> (<strong>TugQT</strong>) sérialisée en YAML/JSON brut. Enregistrez une requête, modifiez-la à la main, comparez ses versions dans Git et exécutez-la sur plusieurs moteurs sans aucune perte.",
     "readSpec": "Lire la spécification",
     "seeExample": "Voir un exemple",
+    "tryInDataTug": "Essayer dans DataTug.app",
     "codeSampleAria": "Un document de requête TugQL"
   },
   "why": {

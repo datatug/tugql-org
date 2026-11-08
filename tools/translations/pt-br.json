@@ -23,6 +23,7 @@
     "lede": "<strong>TugQL</strong> é uma linguagem de consulta portátil e legível por humanos. Ela combina uma sintaxe de texto limpa semelhante a SQL com uma representação estruturada de árvore de consulta <strong>1:1 e sem perdas</strong> (<strong>TugQT</strong>) serializada como YAML/JSON simples. Salve uma consulta, edite-a manualmente, veja o diff no controle de versão e execute-a entre backends sem perdas.",
     "readSpec": "Ler a especificação",
     "seeExample": "Ver um exemplo",
+    "tryInDataTug": "Experimentar no DataTug.app",
     "codeSampleAria": "Um documento de consulta TugQL"
   },
   "why": {

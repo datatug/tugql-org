@@ -547,6 +547,13 @@ code, pre, kbd { font-family: var(--f-mono); }
 .codeblock pre code { background: none; padding: 0; }
 .codeblock pre::-webkit-scrollbar { height: 8px; }
 .codeblock pre::-webkit-scrollbar-thumb { background: var(--border-default); border-radius: 999px; }
+.codeblock-foot {
+  display: flex; justify-content: flex-end;
+  padding: 10px 14px;
+  background: var(--canvas-subtle);
+  border-top: 1px solid var(--border-default);
+}
+.codeblock-foot .btn { gap: 6px; }
 
 /* Code highlight tokens */
 .pl-c   { color: var(--pl-c);  font-style: italic; }

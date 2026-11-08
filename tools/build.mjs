@@ -3,10 +3,14 @@ import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { langs, localeHref, canonicalUrl } from './languages.mjs';
 import { translations } from './translations.mjs';
+import { HERO_QUERY, highlightTugQL, tryInDataTugUrl } from './hero.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = resolve(__dirname, '..');
 const publicDir = resolve(rootDir, 'public');
+
+const heroQueryHtml = highlightTugQL(HERO_QUERY);
+const heroTryUrl = tryInDataTugUrl(HERO_QUERY);
 
 function renderStructuredData(lang, t) {
   const softwareApplication = {
@@ -235,26 +239,13 @@ ${langSwitcherOptions}
         <span class="codeblock-name">sales-by-country.tugql</span>
         <span class="codeblock-lang">TugQL</span>
       </div>
-<pre><code><span class="pl-c">-- one query, two databases</span>
-<span class="pl-k">databases</span> (
-  sales = <span class="pl-s">&#39;datatug://chinook/sales?env=prod&#39;</span>
-  geo   = <span class="pl-s">&#39;datatug://world/countries&#39;</span>
-)
-<span class="pl-k">with</span> BigInvoices <span class="pl-k">as</span> (
-  <span class="pl-k">from</span> sales::Invoice <span class="pl-k">as</span> i
-  <span class="pl-k">where</span> i.Total &gt; <span class="pl-c1">10</span>
-  <span class="pl-k">select</span> i.BillingCountry, i.Total
-)
-<span class="pl-k">from</span> BigInvoices <span class="pl-k">as</span> b
-<span class="pl-k">join</span> geo::Country <span class="pl-k">as</span> c
-  <span class="pl-k">on</span> b.BillingCountry = c.Name
-<span class="pl-k">group by</span> c.Name
-<span class="pl-k">having</span> SUM(b.Total) &gt;= <span class="pl-c1">1000</span>
-<span class="pl-k">order by</span> c.Name <span class="pl-k">asc</span>
-<span class="pl-k">select</span> (
-  c.Name <span class="pl-k">as</span> Country
-  SUM(b.Total) <span class="pl-k">as</span> TotalSales
-)</code></pre>
+<pre><code>${heroQueryHtml}</code></pre>
+      <div class="codeblock-foot">
+        <a class="btn btn-primary btn-sm" href="${heroTryUrl}" target="_blank" rel="noopener" data-try-in-datatug>
+          ${t.hero.tryInDataTug}
+          <svg class="octicon" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg>
+        </a>
+      </div>
     </div>
 
   </div>

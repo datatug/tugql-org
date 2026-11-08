@@ -23,6 +23,7 @@
     "lede": "<strong>TugQL</strong>은 이식 가능하고 사람이 읽기 쉬운 쿼리 언어입니다. 깔끔한 SQL 유사 텍스트 구문과 일반 YAML/JSON으로 직렬화되는 <strong>1:1 무손실</strong> 구조화 쿼리 트리 표현(<strong>TugQT</strong>)을 결합했습니다. 쿼리를 저장하고, 직접 수정하고, 버전 관리에서 diff를 확인하며, 여러 백엔드에서 손실 없이 실행할 수 있습니다.",
     "readSpec": "사양 읽기",
     "seeExample": "예제 보기",
+    "tryInDataTug": "DataTug.app에서 실행해 보기",
     "codeSampleAria": "TugQL 쿼리 문서"
   },
   "why": {

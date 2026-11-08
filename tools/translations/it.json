@@ -23,6 +23,7 @@
     "lede": "<strong>TugQL</strong> è un linguaggio di query portabile e leggibile dall'uomo. Combina una sintassi di testo pulita in stile SQL con una rappresentazione dell'albero di query strutturato <strong>1:1 e senza perdite</strong> (<strong>TugQT</strong>) serializzata come semplice YAML/JSON. Salva una query, modificala a mano, confrontala nei sistemi di controllo versione ed eseguila su diversi backend senza alcuna perdita.",
     "readSpec": "Leggi la specifica",
     "seeExample": "Vedi un esempio",
+    "tryInDataTug": "Prova in DataTug.app",
     "codeSampleAria": "Un documento di query TugQL"
   },
   "why": {
