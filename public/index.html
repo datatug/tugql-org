@@ -4,9 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>TugQL — a portable, human-readable query language</title>
-  <meta name="description" content="TugQL is a portable, human-readable query language. One query runs unchanged across Git, SQLite, PostgreSQL and Firestore — featuring an intuitive SQL-like text syntax and a lossless, schema-validated query tree (TugQT)." />
+  <meta name="description" content="TugQL is a portable, human-readable query language. SQL-like text and a lossless TugQT tree run across Git, SQLite, PostgreSQL, and Firestore." />
   <meta name="theme-color" content="#ffffff" />
   <link rel="canonical" href="https://tugql.org/" />
+  <link rel="describedby" href="https://tugql.org/llms.txt" />
   <link rel="alternate" hreflang="en" href="https://tugql.org/" />
   <link rel="alternate" hreflang="es" href="https://tugql.org/es/" />
   <link rel="alternate" hreflang="de" href="https://tugql.org/de/" />
@@ -29,15 +30,64 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%230d1117'/><text x='50%25' y='53%25' text-anchor='middle' dominant-baseline='middle' font-family='ui-monospace,monospace' font-size='22' font-weight='800' fill='%232f81f7'>{}</text></svg>" />
   <link rel="stylesheet" href="/styles.css" />
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "TugQL",
-    "url": "https://tugql.org",
-    "description": "A portable, human-readable query language and structured query tree (TugQT) for databases and data abstraction layers.",
-    "applicationCategory": "DeveloperApplication",
-    "operatingSystem": "Cross-platform"
-  }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://tugql.org/#software",
+      "name": "TugQL",
+      "url": "https://tugql.org/",
+      "description": "A portable, human-readable query language and structured query tree (TugQT) for databases and data abstraction layers.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Cross-platform"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://tugql.org/#organization",
+      "name": "TugQL",
+      "url": "https://tugql.org/",
+      "sameAs": [
+        "https://github.com/tugql/tugql"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://tugql.org/#website",
+      "name": "TugQL",
+      "url": "https://tugql.org/",
+      "publisher": {
+        "@id": "https://tugql.org/#organization"
+      },
+      "inLanguage": [
+        "en",
+        "es",
+        "de",
+        "fr",
+        "it",
+        "pl",
+        "pt-BR",
+        "ru",
+        "tr",
+        "uk",
+        "ja",
+        "zh-CN",
+        "zh-TW",
+        "ko"
+      ]
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/tugql/tugql#source",
+      "name": "TugQL",
+      "codeRepository": "https://github.com/tugql/tugql",
+      "url": "https://github.com/tugql/tugql",
+      "programmingLanguage": "TugQL",
+      "license": "https://github.com/tugql/tugql/blob/main/LICENSE",
+      "description": "TugQL specification: a portable query language and structured query tree (TugQT)."
+    }
+  ]
+}
   </script>
 </head>
 <body>

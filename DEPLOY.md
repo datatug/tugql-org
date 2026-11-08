@@ -6,9 +6,33 @@ free static assets and never count against the Workers request quota. It deploys
 
 ## Domains & Redirect Architecture
 
-- **Canonical domain:** `tugql.org` (and `www.tugql.org` redirecting to `tugql.org`)
-- **Former domain:** `dtql.org` (and `www.dtql.org`)
-- All requests for `dtql.org` or `www.dtql.org` are redirected permanently (**HTTP 301**) to `https://tugql.org/...` with path and query preservation, and `www.tugql.org` to `https://tugql.org/...`. These are zone-level Cloudflare **Redirect Rules** (they run at the edge before the Worker deployment), not code.
+- **Canonical domain:** `https://tugql.org`
+- **Duplicate hosts:** `www.tugql.org`, `dtql.org`, and `www.dtql.org` must not serve the site. Each one permanently redirects (**HTTP 301**) to `https://tugql.org` with the path preserved.
+
+These host redirects are zone **Redirect Rules**, not Worker code. An assets-only Worker serves the same files on every custom domain. `run_worker_first` patterns match paths, not hostnames, and turning it on for every request would bill those requests. A `public/_redirects` rule is also path-based, so it would redirect `tugql.org` itself.
+
+Alexander: in the Cloudflare dashboard, create one Single Redirect per zone. Use a wildcard pattern, status code **301**, and **Preserve query string** enabled. The `http*` source matches both HTTP and HTTPS; `${2}` is the path captured by the second `*`.
+
+Zone `tugql.org`:
+
+- Request URL: `http*://www.tugql.org/*`
+- Target URL: `https://tugql.org/${2}`
+- Status code: 301
+- Preserve query string: enabled
+
+Zone `dtql.org` (two rules):
+
+- Request URL: `http*://dtql.org/*`
+- Target URL: `https://tugql.org/${2}`
+- Status code: 301
+- Preserve query string: enabled
+
+- Request URL: `http*://www.dtql.org/*`
+- Target URL: `https://tugql.org/${2}`
+- Status code: 301
+- Preserve query string: enabled
+
+Example: `https://www.dtql.org/es/?q=1` redirects to `https://tugql.org/es/?q=1`.
 
 ## Files
 
@@ -16,6 +40,8 @@ free static assets and never count against the Workers request quota. It deploys
 tugql-org/
 ├── public/            ← static assets served to the browser
 │   ├── index.html     ← canonical landing page with schema.org JSON-LD and canonical tag
+│   ├── 404.html       ← body served with HTTP 404 for unknown URLs
+│   ├── llms.txt       ← plain-text description and key links for agents
 │   ├── styles.css
 │   ├── robots.txt
 │   └── sitemap.xml
@@ -57,7 +83,7 @@ Configure `CLOUDFLARE_API_TOKEN` as a secret available to this repository and `C
 ## Custom Domains
 
 Configure routes or custom domains in Cloudflare Dashboard or via `wrangler.jsonc`:
-- `tugql.org` (custom domain)
-- `www.tugql.org` (custom domain)
-- `dtql.org` (custom domain; zone Redirect Rule -> tugql.org)
-- `www.dtql.org` (custom domain; zone Redirect Rule -> tugql.org)
+- `tugql.org` (custom domain, canonical host)
+- `www.tugql.org` (custom domain; zone Redirect Rule 301 to `https://tugql.org`, path and query preserved)
+- `dtql.org` (custom domain; zone Redirect Rule 301 to `https://tugql.org`, path and query preserved)
+- `www.dtql.org` (custom domain; zone Redirect Rule 301 to `https://tugql.org`, path and query preserved)

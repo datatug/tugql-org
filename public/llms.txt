@@ -1,0 +1,43 @@
+# TugQL
+
+> TugQL is an open, portable, human-readable query language and structured query tree (TugQT) for relational, document, API, and graph-connected data. The language specification is published in the public repository: https://github.com/tugql/tugql
+
+TugQL (formerly DTQL) pairs an SQL-like text syntax with TugQT, a structured query tree serialized as YAML or JSON. A query is written once and runs across Git, SQLite, PostgreSQL, and Firestore. This website, https://tugql.org, is the canonical public introduction and is published in several languages. It is not the language specification. dtql.org is the former name and is kept as a permanent redirect to https://tugql.org.
+
+The specification repository is licensed under the [Apache License, Version 2.0](https://github.com/tugql/tugql/blob/main/LICENSE).
+
+## Specification
+
+- [TugQL repository](https://github.com/tugql/tugql): Language specification, canonical JSON Schema (draft 2020-12), and reference documents.
+- [Licence](https://github.com/tugql/tugql/blob/main/LICENSE): Apache License, Version 2.0, for the specification repository.
+- [README](https://github.com/tugql/tugql/blob/main/README.md): Project definition, naming, and links to the reference documents.
+- [Comments](https://github.com/tugql/tugql/blob/main/reference/comments.md): Comment syntax for the text form and the YAML form.
+- [Negative projection](https://github.com/tugql/tugql/blob/main/reference/negative-projection.md): Selecting all columns except an explicit list.
+- [Aggregation](https://github.com/tugql/tugql/blob/main/reference/aggregation.md): Grouping, aggregate expressions, and HAVING in the specification.
+
+## Site
+
+- [English](https://tugql.org/): Canonical homepage.
+- [Español](https://tugql.org/es/): Spanish homepage.
+- [Deutsch](https://tugql.org/de/): German homepage.
+- [Français](https://tugql.org/fr/): French homepage.
+- [Italiano](https://tugql.org/it/): Italian homepage.
+- [Polski](https://tugql.org/pl/): Polish homepage.
+- [Português (BR)](https://tugql.org/pt-br/): Brazilian Portuguese homepage.
+- [Русский](https://tugql.org/ru/): Russian homepage.
+- [Türkçe](https://tugql.org/tr/): Turkish homepage.
+- [Українська](https://tugql.org/uk/): Ukrainian homepage.
+- [日本語](https://tugql.org/ja/): Japanese homepage.
+- [中文](https://tugql.org/zh-cn/): Simplified Chinese homepage.
+- [繁體中文](https://tugql.org/zh-tw/): Traditional Chinese homepage.
+- [한국어](https://tugql.org/ko/): Korean homepage.
+- [Sitemap](https://tugql.org/sitemap.xml): Localized homepages.
+
+## Implementations
+
+- [Go library](https://github.com/dal-go/dalgo/tree/main/tugql): Parse, validate, resolve, format, and execute TugQL queries.
+
+## Optional
+
+- [DataTug](https://datatug.app): Product whose query-contract work around TugQL and TugQT is ongoing.
+- [DataTug query tools](https://datatug.app/en/under-the-hood/tools-we-built/#query): Notes on the tools behind that work.

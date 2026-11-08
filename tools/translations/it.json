@@ -2,7 +2,7 @@
   "feedback": "Suggerisci un miglioramento",
   "meta": {
     "title": "TugQL — un linguaggio di query portabile e leggibile dall'uomo",
-    "description": "TugQL è un linguaggio di query portabile e leggibile dall'uomo. Una query viene eseguita invariata su Git, SQLite, PostgreSQL e Firestore — con una sintassi intuitiva simile a SQL e un albero di query lossless validato da schema (TugQT).",
+    "description": "TugQL è un linguaggio di query portabile e leggibile. Il testo in stile SQL e l’albero TugQT senza perdite girano su Git, SQLite, PostgreSQL e Firestore.",
     "ogDescription": "TugQL: linguaggio di query portabile e albero di query strutturato (TugQT) compatibile con molteplici backend.",
     "jsonLdDescription": "Un linguaggio di query portabile e albero di query strutturato (TugQT) per database e livelli di astrazione dati."
   },

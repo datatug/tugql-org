@@ -2,7 +2,7 @@
   "feedback": "Zaproponuj ulepszenie",
   "meta": {
     "title": "TugQL — przenośny, czytelny dla człowieka język zapytań",
-    "description": "TugQL to przenośny, czytelny dla ludzi język zapytań. Jedno zapytanie działa bez zmian w Git, SQLite, PostgreSQL i Firestore — oferując intuicyjną składnię zbliżoną do SQL oraz bezstratne drzewo zapytań walidowane schematem (TugQT).",
+    "description": "TugQL to przenośny, czytelny język zapytań. Tekst podobny do SQL i bezstratne drzewo TugQT działają na Git, SQLite, PostgreSQL i Firestore.",
     "ogDescription": "TugQL: przenośny, czytelny język zapytań i ustrukturyzowane drzewo zapytań (TugQT) działające na wielu backendach.",
     "jsonLdDescription": "Przenośny, czytelny dla ludzi język zapytań oraz ustrukturyzowane drzewo zapytań (TugQT) dla baz danych i warstw abstrakcji."
   },

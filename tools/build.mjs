@@ -8,6 +8,57 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = resolve(__dirname, '..');
 const publicDir = resolve(rootDir, 'public');
 
+function renderStructuredData(lang, t) {
+  const softwareApplication = {
+    '@type': 'SoftwareApplication',
+    '@id': 'https://tugql.org/#software',
+    name: 'TugQL',
+    url: 'https://tugql.org/',
+    description: t.meta.jsonLdDescription,
+    applicationCategory: 'DeveloperApplication',
+    operatingSystem: 'Cross-platform',
+  };
+
+  // Organization, WebSite, and SoftwareSourceCode describe the canonical site
+  // and the specification repository. They belong on the English homepage only.
+  const data = lang.code === 'en'
+    ? {
+        '@context': 'https://schema.org',
+        '@graph': [
+          softwareApplication,
+          {
+            '@type': 'Organization',
+            '@id': 'https://tugql.org/#organization',
+            name: 'TugQL',
+            url: 'https://tugql.org/',
+            sameAs: ['https://github.com/tugql/tugql'],
+          },
+          {
+            '@type': 'WebSite',
+            '@id': 'https://tugql.org/#website',
+            name: 'TugQL',
+            url: 'https://tugql.org/',
+            publisher: { '@id': 'https://tugql.org/#organization' },
+            inLanguage: langs.map((l) => l.tag),
+          },
+          {
+            '@type': 'SoftwareSourceCode',
+            '@id': 'https://github.com/tugql/tugql#source',
+            name: 'TugQL',
+            codeRepository: 'https://github.com/tugql/tugql',
+            url: 'https://github.com/tugql/tugql',
+            programmingLanguage: 'TugQL',
+            license: 'https://github.com/tugql/tugql/blob/main/LICENSE',
+            description: 'TugQL specification: a portable query language and structured query tree (TugQT).',
+          },
+        ],
+      }
+    : { '@context': 'https://schema.org', ...softwareApplication };
+
+  const json = JSON.stringify(data, null, 2).replace(/</g, '\\u003c');
+  return `  <script type="application/ld+json">\n${json}\n  </script>`;
+}
+
 function renderPage(lang) {
   const t = translations[lang.code];
   if (!t) throw new Error(`Missing translations for language code: ${lang.code}`);
@@ -29,6 +80,8 @@ function renderPage(lang) {
     const isActive = l.code === lang.code;
     return `        <li><a href="${localeHref(l.code)}" hreflang="${l.tag}" lang="${l.tag}" class="footer-langs__tab${isActive ? ' is-active' : ''}"${isActive ? ' aria-current="page"' : ''}>${l.label}</a></li>`;
   }).join('\n');
+
+  const structuredData = renderStructuredData(lang, t);
 
   const mappingRows = t.mapping.rows.map((r) => {
     return `          <tr><td>${r.node}</td><td>${r.rep}</td></tr>`;
@@ -76,6 +129,7 @@ function renderPage(lang) {
   <meta name="description" content="${t.meta.description}" />
   <meta name="theme-color" content="#ffffff" />
   <link rel="canonical" href="${canonical}" />
+  <link rel="describedby" href="https://tugql.org/llms.txt" />
 ${alternateLinks}
   <meta property="og:title" content="${t.meta.title}" />
   <meta property="og:description" content="${t.meta.ogDescription}" />
@@ -83,17 +137,7 @@ ${alternateLinks}
   <meta property="og:url" content="${canonical}" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%230d1117'/><text x='50%25' y='53%25' text-anchor='middle' dominant-baseline='middle' font-family='ui-monospace,monospace' font-size='22' font-weight='800' fill='%232f81f7'>{}</text></svg>" />
   <link rel="stylesheet" href="/styles.css" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "TugQL",
-    "url": "https://tugql.org",
-    "description": "${t.meta.jsonLdDescription}",
-    "applicationCategory": "DeveloperApplication",
-    "operatingSystem": "Cross-platform"
-  }
-  </script>
+${structuredData}
 </head>
 <body>
 
