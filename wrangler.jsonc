@@ -6,16 +6,19 @@
   "compatibility_date": "2025-09-01",
   "assets": {
     "directory": "./public",
-    // Serve index.html, return its 404 page otherwise.
+    // Unknown URLs serve the nearest 404.html (public/404.html) with HTTP 404.
     "not_found_handling": "404-page",
     // Redirect /index.html and trailing-slash variants to clean URLs.
     "html_handling": "auto-trailing-slash"
   },
   // All four hosts stay attached as Custom Domains (Cloudflare keeps their proxied DNS).
-  // Host-level 301s are zone Redirect Rules, evaluated at the edge BEFORE this
-  // deployment, so they cost no Worker request:
-  //   dtql.org/*, www.dtql.org/* -> https://tugql.org/<path>?<query>   (zone dtql.org)
-  //   www.tugql.org/*            -> https://tugql.org/<path>?<query>   (zone tugql.org)
+  // Host 301s are NOT done in this Worker. run_worker_first patterns are paths, not
+  // hostnames, and run_worker_first: true would bill every request. A public/_redirects
+  // rule is also path-based, so it would redirect tugql.org itself. Alexander adds
+  // zone Redirect Rules (HTTP 301, preserve query string) before this deployment:
+  //   zone tugql.org: http*://www.tugql.org/* -> https://tugql.org/${2}
+  //   zone dtql.org:  http*://dtql.org/* and http*://www.dtql.org/* -> https://tugql.org/${2}
+  // Exact dashboard steps are in DEPLOY.md.
   "routes": [
     { "pattern": "tugql.org", "custom_domain": true },
     { "pattern": "www.tugql.org", "custom_domain": true },

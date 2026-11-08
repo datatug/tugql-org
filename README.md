@@ -11,8 +11,9 @@ Source code for **[tugql.org](https://tugql.org)** (formerly **dtql.org**) — d
 ## Architecture & Deployment
 
 The site is served by an assets-only Cloudflare Worker with static assets in `public/`.
-- No Worker script: requests are served by free static assets. Zone Redirect Rules (not code) 301 `dtql.org`, `www.dtql.org` and `www.tugql.org` to `https://tugql.org$path$query`.
-- Canonical metadata, sitemap, and robots.txt all reference `https://tugql.org`.
+- No Worker script: requests are served by free static assets. Unknown URLs return `public/404.html` with HTTP 404.
+- Host redirects are zone Redirect Rules, not Worker code. `www.tugql.org`, `dtql.org`, and `www.dtql.org` must 301 to `https://tugql.org` with the path and query preserved. The exact rules are in [DEPLOY.md](DEPLOY.md).
+- Canonical metadata, hreflang, sitemap, `robots.txt`, and `llms.txt` all reference `https://tugql.org`.
 
 ## Localization (i18n)
 

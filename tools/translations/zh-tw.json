@@ -2,7 +2,7 @@
   "feedback": "提出改善建議",
   "meta": {
     "title": "TugQL — 便攜、易於人類閱讀的查詢語言",
-    "description": "TugQL是一種便攜、易於人類閱讀的查詢語言。同一查詢無需修改即可在 Git、SQLite、PostgreSQL 和 Firestore 上運行——兼具直觀的類 SQL 文字語法與經架構驗證的無損查詢樹（TugQT）。",
+    "description": "TugQL是一種便攜、易於人類閱讀的查詢語言。它使用類似SQL的文字語法和無損的結構化查詢樹TugQT，同一查詢可在Git、SQLite、PostgreSQL和Firestore上保持不變地運行。語言規範與JSON Schema發布在公開倉庫中。",
     "ogDescription": "TugQL：跨後端的便攜、易讀查詢語言與結構化查詢樹（TugQT）。",
     "jsonLdDescription": "適用於資料庫和資料抽象層的便攜、易於人類閱讀的查詢語言及結構化查詢樹（TugQT）。"
   },
