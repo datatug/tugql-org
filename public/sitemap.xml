@@ -589,4 +589,6 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://tugql.org/ko/about/tech-stack/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/about/tech-stack/" />
   </url>
+  <url><loc>https://tugql.org/docs/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://tugql.org/docs/getting-started/</loc><lastmod>2026-11-10</lastmod></url>
 </urlset>

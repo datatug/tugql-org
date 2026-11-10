@@ -1,0 +1,12 @@
+.docs-page { max-width: 900px; padding-top: 48px; padding-bottom: 80px; }
+.docs-page nav { font-size: 14px; margin-bottom: 24px; }
+.docs-page h1 { font-size: clamp(36px, 5vw, 54px); line-height: 1.1; margin: 0 0 20px; }
+.docs-page h2 { font-size: 28px; margin: 42px 0 14px; }
+.docs-page p, .docs-page li { font-size: 17px; line-height: 1.65; }
+.docs-page pre { overflow-x: auto; padding: 20px; border-radius: 10px; background: #0d1117; color: #f0f6fc; font-size: 15px; line-height: 1.6; }
+.docs-page code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.docs-page p code { padding: 2px 4px; background: #eaeef2; color: #24292f; border-radius: 4px; }
+.docs-intro { font-size: 20px !important; }
+.docs-list { padding-left: 24px; }
+.docs-list li { margin: 20px 0; }
+.docs-list p { margin: 4px 0 0; }
