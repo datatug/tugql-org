@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TugQL specification and schema | TugQL</title>
+  <meta name="description" content="Read the current TugQL reference snapshot on this domain and download the Go serialization JSON Schema." />
+  <link rel="canonical" href="https://tugql.org/docs/spec/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="TugQL specification and schema | TugQL" />
+  <meta property="og:description" content="Read the current TugQL reference snapshot on this domain and download the Go serialization JSON Schema." />
+  <meta property="og:url" content="https://tugql.org/docs/spec/" />
+  <meta property="og:image" content="https://tugql.org/og-card.png" />
+  <meta property="og:image:alt" content="TugQL" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TugQL specification and schema | TugQL" />
+  <meta name="twitter:description" content="Read the current TugQL reference snapshot on this domain and download the Go serialization JSON Schema." />
+  <meta name="twitter:image" content="https://tugql.org/og-card.png" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/docs.css" />
+</head>
+<body>
+  <header class="AppHeader"><div class="AppHeader-inner"><a class="AppHeader-brand" href="/"><span class="AppHeader-brand-mark" aria-hidden="true">{}</span><span class="AppHeader-brand-word">TugQL</span></a><nav class="AppHeader-nav" aria-label="Primary"><a href="/">Home</a><a href="/docs/">Docs</a><a href="https://github.com/tugql/tugql">Source</a></nav></div></header>
+  <main class="container docs-page">
+    <nav aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/docs/">Docs</a> / TugQL specification and schema</nav><h1>TugQL specification and schema</h1><p class="docs-intro">Read the current TugQL reference snapshot on this domain and download the Go serialization JSON Schema.</p><section><h2>Specification source</h2><p>This page hosts a snapshot of the public <a href="https://github.com/tugql/tugql/tree/ff06f6a3318b5da2735835c9b4045b536f579759">tugql/tugql</a> material at commit <code>ff06f6a</code> under its <a href="/docs/spec/LICENSE.txt">Apache 2.0 license</a>. Check the source repository for later changes.</p>
+<ul>
+<li><a href="/docs/spec/README.md">TugQL overview and naming</a></li>
+<li><a href="/docs/spec/reference/cross-database.md">Cross-database query reference</a></li>
+<li><a href="/docs/spec/reference/aggregation.md">Aggregation reference</a></li>
+<li><a href="/docs/spec/reference/negative-projection.md">Negative projection reference</a></li>
+<li><a href="/docs/spec/reference/comments.md">Comment syntax and conversion</a></li>
+</ul>
+<p>The source files above are served as Markdown. The overview's links to design material outside this snapshot point back to the pinned GitHub commit. The <a href="/docs/syntax/">syntax cheat sheet</a> and <a href="/docs/cross-database/">worked tutorial</a> are HTML guides to selected parts of those references.</p></section>
+<section><h2>JSON Schema download</h2><p><a href="/docs/schema.json">Download schema.json</a> (<a href="/docs/schema-LICENSE.txt">MIT license notice</a>). This is an exact copy of <a href="https://github.com/dal-go/dalgo/blob/69da201f70997e3ee37c9685abb7f6d727eaa3e7/tugql/schema/schema.json">DALgo's schema</a> at commit <code>69da201</code>. It describes the Go library's YAML serialization of the core relational read-only <code>dal.StructuredQuery</code> subset and declares JSON Schema draft 2020-12.</p>
+<p>It does not validate every text parser authoring tree or prove that every backend executes every construct. Resolve a query against caller-authorized schemas and verify the target adapter's capabilities before execution.</p></section><p><a href="/docs/">All documentation</a></p>
+  </main>
+  <footer class="AppFooter"><div class="container AppFooter-inner"><a href="/">TugQL</a><a href="https://github.com/tugql/tugql">Specification source</a></div></footer>
+</body>
+</html>

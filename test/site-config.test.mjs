@@ -4,6 +4,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runInNewContext } from 'node:vm';
+import { createHash } from 'node:crypto';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 // wrangler.jsonc carries whole-line // comments; strip them before parsing.
@@ -173,6 +174,28 @@ describe('tugql.org is served as static assets only', () => {
       assert.match(html, /<h1>[^<]+<\/h1>/);
       assert.match(html, new RegExp(`<link rel="canonical" href="https://tugql.org/${route}/" />`));
       assert.ok(sitemap.includes(`<loc>https://tugql.org/${route}/</loc>`));
+    }
+  });
+
+  it('keeps the hosted schema byte-identical to its pinned source snapshot', () => {
+    const schemaBytes = readFileSync(resolve(root, 'public/docs/schema.json'));
+    assert.equal(
+      createHash('sha256').update(schemaBytes).digest('hex'),
+      '754ae9dd049be7fdd7994e5effb6e598257580a4594d2fcfc0f631a8c4dce8ca',
+    );
+    const schema = JSON.parse(schemaBytes);
+    assert.equal(schema.$schema, 'https://json-schema.org/draft/2020-12/schema');
+    assert.match(schema.description, /YAML serialization of dalgo/);
+    const redirects = readFileSync(resolve(root, 'public/_redirects'), 'utf8');
+    assert.match(redirects, /\/spec \/docs\/spec\/ 301/);
+    const specHtml = readFileSync(resolve(root, 'public/docs/spec/index.html'), 'utf8');
+    assert.match(specHtml, /href="\/docs\/spec\/LICENSE\.txt"/);
+    assert.ok(existsSync(resolve(root, 'public/docs/spec/LICENSE.txt')));
+    const overview = readFileSync(resolve(root, 'public/docs/spec/README.md'), 'utf8');
+    assert.doesNotMatch(overview, /\]\(design\//);
+    for (const path of ['README.md', 'reference/aggregation.md', 'reference/comments.md', 'reference/cross-database.md', 'reference/negative-projection.md']) {
+      assert.ok(existsSync(resolve(root, 'public/docs/spec', path)));
+      assert.ok(readFileSync(resolve(root, 'public/sitemap.xml'), 'utf8').includes(`<loc>https://tugql.org/docs/spec/${path}</loc>`));
     }
   });
 });
