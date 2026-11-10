@@ -3,8 +3,9 @@ import { syntax } from './docs/syntax.mjs';
 import { tugqt } from './docs/tugqt.mjs';
 import { crossDatabase } from './docs/cross-database.mjs';
 import { spec } from './docs/spec.mjs';
+import { faq } from './docs/faq.mjs';
 
-export const docPages = [gettingStarted, syntax, tugqt, crossDatabase, spec];
+export const docPages = [gettingStarted, syntax, tugqt, crossDatabase, spec, faq];
 const origin = 'https://tugql.org';
 
 function escapeHtml(value) {
