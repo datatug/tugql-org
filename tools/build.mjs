@@ -6,6 +6,7 @@ import { translations } from './translations.mjs';
 import { HERO_QUERY, highlightTugQL, tryInDataTugUrl } from './hero.mjs';
 import { renderTechStack, techStackCopy } from './tech-stack.mjs';
 import { docPages, renderDocPage, renderDocsIndex } from './docs.mjs';
+import { specSourcePaths } from './docs/spec.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = resolve(__dirname, '..');
@@ -535,7 +536,7 @@ function renderSitemap() {
 ${alternates}
   </url>`;
   })).join('\n');
-  const docsUrls = ['docs/', ...docPages.map(page => `docs/${page.slug}/`)]
+  const docsUrls = ['docs/', ...docPages.map(page => `docs/${page.slug}/`), ...specSourcePaths]
     .map(path => `  <url><loc>https://tugql.org/${path}</loc><lastmod>${today}</lastmod></url>`)
     .join('\n');
 
