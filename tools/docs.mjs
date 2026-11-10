@@ -1,6 +1,7 @@
 import { gettingStarted } from './docs/getting-started.mjs';
+import { syntax } from './docs/syntax.mjs';
 
-export const docPages = [gettingStarted];
+export const docPages = [gettingStarted, syntax];
 const origin = 'https://tugql.org';
 
 function escapeHtml(value) {
