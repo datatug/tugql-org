@@ -129,6 +129,30 @@ describe('tugql.org is served as static assets only', () => {
     assert.equal(new Set(descriptions).size, descriptions.length, 'meta descriptions must be unique');
     assert.doesNotMatch(sitemap, /404\.html/);
   });
+
+  it('publishes a distinct tech stack page in every supported language', async () => {
+    const { langs, localeHref, canonicalUrl } = await import('../tools/languages.mjs');
+    const sitemap = readFileSync(resolve(root, 'public/sitemap.xml'), 'utf8');
+    const descriptions = new Set();
+    for (const lang of langs) {
+      const rel = lang.code === 'en' ? 'about/tech-stack/index.html' : `${lang.code}/about/tech-stack/index.html`;
+      const html = readFileSync(resolve(root, 'public', rel), 'utf8');
+      const canonical = canonicalUrl(lang.code, 'about/tech-stack/');
+      assert.match(html, new RegExp(`<html lang="${lang.tag}">`));
+      assert.ok(html.includes(`<link rel="canonical" href="${canonical}" />`));
+      assert.ok(html.includes('<h1>'));
+      const description = html.match(/<meta name="description" content="([^"]+)" \/>/)?.[1];
+      assert.ok(description, `${lang.code} description`);
+      assert.ok([...description].length >= 120 && [...description].length <= 160, `${lang.code} description length`);
+      descriptions.add(description);
+      assert.ok(html.includes('"@type":"AboutPage"'));
+      assert.ok(html.includes('"@type":"BreadcrumbList"'));
+      assert.ok(sitemap.includes(`<loc>${canonical}</loc>`));
+      const home = readFileSync(resolve(root, 'public', lang.code === 'en' ? 'index.html' : `${lang.code}/index.html`), 'utf8');
+      assert.ok(home.includes(`href="${localeHref(lang.code, 'about/tech-stack/')}"`));
+    }
+    assert.equal(descriptions.size, langs.length);
+  });
 });
 
 const AI_CRAWLERS = [

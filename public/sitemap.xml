@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://tugql.org/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://tugql.org/" />
@@ -23,8 +23,29 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/" />
   </url>
   <url>
+    <loc>https://tugql.org/about/tech-stack/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tugql.org/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tugql.org/es/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tugql.org/de/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tugql.org/fr/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://tugql.org/it/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tugql.org/pl/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tugql.org/pt-br/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tugql.org/ru/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tugql.org/tr/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tugql.org/uk/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tugql.org/ja/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tugql.org/zh-cn/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tugql.org/zh-tw/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tugql.org/ko/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/about/tech-stack/" />
+  </url>
+  <url>
     <loc>https://tugql.org/es/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://tugql.org/" />
@@ -42,10 +63,31 @@
     <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tugql.org/zh-tw/" />
     <xhtml:link rel="alternate" hreflang="ko" href="https://tugql.org/ko/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/" />
+  </url>
+  <url>
+    <loc>https://tugql.org/es/about/tech-stack/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tugql.org/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tugql.org/es/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tugql.org/de/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tugql.org/fr/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://tugql.org/it/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tugql.org/pl/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tugql.org/pt-br/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tugql.org/ru/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tugql.org/tr/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tugql.org/uk/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tugql.org/ja/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tugql.org/zh-cn/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tugql.org/zh-tw/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tugql.org/ko/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/about/tech-stack/" />
   </url>
   <url>
     <loc>https://tugql.org/de/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://tugql.org/" />
@@ -63,10 +105,31 @@
     <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tugql.org/zh-tw/" />
     <xhtml:link rel="alternate" hreflang="ko" href="https://tugql.org/ko/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/" />
+  </url>
+  <url>
+    <loc>https://tugql.org/de/about/tech-stack/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tugql.org/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tugql.org/es/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tugql.org/de/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tugql.org/fr/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://tugql.org/it/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tugql.org/pl/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tugql.org/pt-br/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tugql.org/ru/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tugql.org/tr/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tugql.org/uk/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tugql.org/ja/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tugql.org/zh-cn/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tugql.org/zh-tw/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tugql.org/ko/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/about/tech-stack/" />
   </url>
   <url>
     <loc>https://tugql.org/fr/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://tugql.org/" />
@@ -84,10 +147,31 @@
     <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tugql.org/zh-tw/" />
     <xhtml:link rel="alternate" hreflang="ko" href="https://tugql.org/ko/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/" />
+  </url>
+  <url>
+    <loc>https://tugql.org/fr/about/tech-stack/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tugql.org/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tugql.org/es/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tugql.org/de/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tugql.org/fr/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://tugql.org/it/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tugql.org/pl/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tugql.org/pt-br/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tugql.org/ru/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tugql.org/tr/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tugql.org/uk/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tugql.org/ja/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tugql.org/zh-cn/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tugql.org/zh-tw/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tugql.org/ko/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/about/tech-stack/" />
   </url>
   <url>
     <loc>https://tugql.org/it/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://tugql.org/" />
@@ -105,10 +189,31 @@
     <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tugql.org/zh-tw/" />
     <xhtml:link rel="alternate" hreflang="ko" href="https://tugql.org/ko/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/" />
+  </url>
+  <url>
+    <loc>https://tugql.org/it/about/tech-stack/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tugql.org/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tugql.org/es/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tugql.org/de/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tugql.org/fr/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://tugql.org/it/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tugql.org/pl/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tugql.org/pt-br/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tugql.org/ru/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tugql.org/tr/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tugql.org/uk/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tugql.org/ja/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tugql.org/zh-cn/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tugql.org/zh-tw/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tugql.org/ko/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/about/tech-stack/" />
   </url>
   <url>
     <loc>https://tugql.org/pl/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://tugql.org/" />
@@ -126,10 +231,31 @@
     <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tugql.org/zh-tw/" />
     <xhtml:link rel="alternate" hreflang="ko" href="https://tugql.org/ko/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/" />
+  </url>
+  <url>
+    <loc>https://tugql.org/pl/about/tech-stack/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tugql.org/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tugql.org/es/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tugql.org/de/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tugql.org/fr/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://tugql.org/it/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tugql.org/pl/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tugql.org/pt-br/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tugql.org/ru/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tugql.org/tr/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tugql.org/uk/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tugql.org/ja/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tugql.org/zh-cn/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tugql.org/zh-tw/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tugql.org/ko/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/about/tech-stack/" />
   </url>
   <url>
     <loc>https://tugql.org/pt-br/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://tugql.org/" />
@@ -147,10 +273,31 @@
     <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tugql.org/zh-tw/" />
     <xhtml:link rel="alternate" hreflang="ko" href="https://tugql.org/ko/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/" />
+  </url>
+  <url>
+    <loc>https://tugql.org/pt-br/about/tech-stack/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tugql.org/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tugql.org/es/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tugql.org/de/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tugql.org/fr/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://tugql.org/it/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tugql.org/pl/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tugql.org/pt-br/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tugql.org/ru/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tugql.org/tr/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tugql.org/uk/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tugql.org/ja/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tugql.org/zh-cn/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tugql.org/zh-tw/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tugql.org/ko/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/about/tech-stack/" />
   </url>
   <url>
     <loc>https://tugql.org/ru/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://tugql.org/" />
@@ -168,10 +315,31 @@
     <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tugql.org/zh-tw/" />
     <xhtml:link rel="alternate" hreflang="ko" href="https://tugql.org/ko/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/" />
+  </url>
+  <url>
+    <loc>https://tugql.org/ru/about/tech-stack/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tugql.org/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tugql.org/es/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tugql.org/de/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tugql.org/fr/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://tugql.org/it/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tugql.org/pl/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tugql.org/pt-br/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tugql.org/ru/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tugql.org/tr/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tugql.org/uk/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tugql.org/ja/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tugql.org/zh-cn/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tugql.org/zh-tw/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tugql.org/ko/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/about/tech-stack/" />
   </url>
   <url>
     <loc>https://tugql.org/tr/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://tugql.org/" />
@@ -189,10 +357,31 @@
     <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tugql.org/zh-tw/" />
     <xhtml:link rel="alternate" hreflang="ko" href="https://tugql.org/ko/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/" />
+  </url>
+  <url>
+    <loc>https://tugql.org/tr/about/tech-stack/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tugql.org/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tugql.org/es/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tugql.org/de/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tugql.org/fr/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://tugql.org/it/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tugql.org/pl/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tugql.org/pt-br/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tugql.org/ru/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tugql.org/tr/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tugql.org/uk/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tugql.org/ja/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tugql.org/zh-cn/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tugql.org/zh-tw/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tugql.org/ko/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/about/tech-stack/" />
   </url>
   <url>
     <loc>https://tugql.org/uk/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://tugql.org/" />
@@ -210,10 +399,31 @@
     <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tugql.org/zh-tw/" />
     <xhtml:link rel="alternate" hreflang="ko" href="https://tugql.org/ko/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/" />
+  </url>
+  <url>
+    <loc>https://tugql.org/uk/about/tech-stack/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tugql.org/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tugql.org/es/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tugql.org/de/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tugql.org/fr/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://tugql.org/it/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tugql.org/pl/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tugql.org/pt-br/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tugql.org/ru/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tugql.org/tr/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tugql.org/uk/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tugql.org/ja/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tugql.org/zh-cn/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tugql.org/zh-tw/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tugql.org/ko/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/about/tech-stack/" />
   </url>
   <url>
     <loc>https://tugql.org/ja/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://tugql.org/" />
@@ -231,10 +441,31 @@
     <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tugql.org/zh-tw/" />
     <xhtml:link rel="alternate" hreflang="ko" href="https://tugql.org/ko/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/" />
+  </url>
+  <url>
+    <loc>https://tugql.org/ja/about/tech-stack/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tugql.org/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tugql.org/es/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tugql.org/de/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tugql.org/fr/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://tugql.org/it/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tugql.org/pl/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tugql.org/pt-br/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tugql.org/ru/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tugql.org/tr/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tugql.org/uk/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tugql.org/ja/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tugql.org/zh-cn/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tugql.org/zh-tw/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tugql.org/ko/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/about/tech-stack/" />
   </url>
   <url>
     <loc>https://tugql.org/zh-cn/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://tugql.org/" />
@@ -252,10 +483,31 @@
     <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tugql.org/zh-tw/" />
     <xhtml:link rel="alternate" hreflang="ko" href="https://tugql.org/ko/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/" />
+  </url>
+  <url>
+    <loc>https://tugql.org/zh-cn/about/tech-stack/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tugql.org/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tugql.org/es/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tugql.org/de/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tugql.org/fr/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://tugql.org/it/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tugql.org/pl/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tugql.org/pt-br/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tugql.org/ru/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tugql.org/tr/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tugql.org/uk/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tugql.org/ja/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tugql.org/zh-cn/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tugql.org/zh-tw/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tugql.org/ko/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/about/tech-stack/" />
   </url>
   <url>
     <loc>https://tugql.org/zh-tw/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://tugql.org/" />
@@ -275,8 +527,29 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/" />
   </url>
   <url>
+    <loc>https://tugql.org/zh-tw/about/tech-stack/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tugql.org/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tugql.org/es/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tugql.org/de/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tugql.org/fr/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://tugql.org/it/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tugql.org/pl/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tugql.org/pt-br/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tugql.org/ru/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tugql.org/tr/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tugql.org/uk/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tugql.org/ja/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tugql.org/zh-cn/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tugql.org/zh-tw/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tugql.org/ko/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/about/tech-stack/" />
+  </url>
+  <url>
     <loc>https://tugql.org/ko/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://tugql.org/" />
@@ -294,5 +567,26 @@
     <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tugql.org/zh-tw/" />
     <xhtml:link rel="alternate" hreflang="ko" href="https://tugql.org/ko/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/" />
+  </url>
+  <url>
+    <loc>https://tugql.org/ko/about/tech-stack/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tugql.org/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tugql.org/es/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tugql.org/de/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tugql.org/fr/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://tugql.org/it/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tugql.org/pl/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tugql.org/pt-br/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tugql.org/ru/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tugql.org/tr/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tugql.org/uk/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tugql.org/ja/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tugql.org/zh-cn/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tugql.org/zh-tw/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tugql.org/ko/about/tech-stack/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/about/tech-stack/" />
   </url>
 </urlset>
