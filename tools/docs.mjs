@@ -7,8 +7,9 @@ import { faq } from './docs/faq.mjs';
 import { comparePrql } from './docs/tugql-vs-prql.mjs';
 import { compareMalloy } from './docs/tugql-vs-malloy.mjs';
 import { compareSql } from './docs/tugql-vs-sql.mjs';
+import { howtoGit } from './docs/query-git-ingitdb.mjs';
 
-export const docPages = [gettingStarted, syntax, tugqt, crossDatabase, spec, faq, comparePrql, compareMalloy, compareSql];
+export const docPages = [gettingStarted, syntax, tugqt, crossDatabase, spec, faq, comparePrql, compareMalloy, compareSql, howtoGit];
 const origin = 'https://tugql.org';
 
 function escapeHtml(value) {
