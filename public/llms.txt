@@ -41,3 +41,22 @@ The specification repository is licensed under the [Apache License, Version 2.0]
 
 - [DataTug](https://datatug.app): Product whose query-contract work around TugQL and TugQT is ongoing.
 - [DataTug query tools](https://datatug.app/en/under-the-hood/tools-we-built/#query): Notes on the tools behind that work.
+
+## About the technology
+
+The site uses a Node.js static HTML generator and Cloudflare Workers Static Assets. The open language specification is at https://github.com/tugql/tugql; its Go implementation lives in DALgo at https://github.com/dal-go/dalgo/tree/main/tugql.
+
+- English: https://tugql.org/about/tech-stack/
+- Español: https://tugql.org/es/about/tech-stack/
+- Deutsch: https://tugql.org/de/about/tech-stack/
+- Français: https://tugql.org/fr/about/tech-stack/
+- Italiano: https://tugql.org/it/about/tech-stack/
+- Polski: https://tugql.org/pl/about/tech-stack/
+- Português (BR): https://tugql.org/pt-br/about/tech-stack/
+- Русский: https://tugql.org/ru/about/tech-stack/
+- Türkçe: https://tugql.org/tr/about/tech-stack/
+- Українська: https://tugql.org/uk/about/tech-stack/
+- 日本語: https://tugql.org/ja/about/tech-stack/
+- 中文: https://tugql.org/zh-cn/about/tech-stack/
+- 繁體中文: https://tugql.org/zh-tw/about/tech-stack/
+- 한국어: https://tugql.org/ko/about/tech-stack/

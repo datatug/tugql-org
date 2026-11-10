@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { langs, localeHref, canonicalUrl } from './languages.mjs';
 import { translations } from './translations.mjs';
 import { HERO_QUERY, highlightTugQL, tryInDataTugUrl } from './hero.mjs';
+import { renderTechStack, techStackCopy } from './tech-stack.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = resolve(__dirname, '..');
@@ -457,6 +458,7 @@ ${footerLangsList}
       <li><a href="https://github.com/dal-go/dalgo/tree/main/tugql" rel="noopener">${t.footer.goImpl}</a></li>
       <li><a href="#example">${t.footer.example}</a></li>
       <li><a href="#mapping">${t.footer.mapping}</a></li>
+      <li><a href="${localeHref(lang.code, 'about/tech-stack/')}">${techStackCopy[lang.code].title}</a></li>
     </ul>
     <span class="AppFooter-tag">${t.footer.tag}</span>
   </div>
@@ -499,21 +501,21 @@ ${footerLangsList}
 
 function renderSitemap() {
   const today = new Date().toISOString().split('T')[0];
-  const urls = langs.map((lang) => {
-    const loc = canonicalUrl(lang.code);
+  const urls = langs.flatMap((lang) => ['', 'about/tech-stack/'].map((route) => {
+    const loc = canonicalUrl(lang.code, route);
     const alternates = [
-      ...langs.map((l) => `    <xhtml:link rel="alternate" hreflang="${l.tag}" href="${canonicalUrl(l.code)}" />`),
-      `    <xhtml:link rel="alternate" hreflang="x-default" href="https://tugql.org/" />`
+      ...langs.map((l) => `    <xhtml:link rel="alternate" hreflang="${l.tag}" href="${canonicalUrl(l.code, route)}" />`),
+      `    <xhtml:link rel="alternate" hreflang="x-default" href="${canonicalUrl('en', route)}" />`
     ].join('\n');
 
     return `  <url>
     <loc>${loc}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>${lang.code === 'en' ? '1.0' : '0.9'}</priority>
+    <priority>${route ? '0.6' : lang.code === 'en' ? '1.0' : '0.9'}</priority>
 ${alternates}
   </url>`;
-  }).join('\n');
+  })).join('\n');
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -539,6 +541,9 @@ export function buildAll() {
       writeFileSync(targetPath, html, 'utf8');
       console.log(`  -> wrote public/${lang.code}/index.html`);
     }
+    const techStackDir = resolve(publicDir, lang.code === 'en' ? 'about/tech-stack' : `${lang.code}/about/tech-stack`);
+    mkdirSync(techStackDir, { recursive: true });
+    writeFileSync(resolve(techStackDir, 'index.html'), renderTechStack(lang), 'utf8');
   }
 
   // Update sitemap.xml
