@@ -1,8 +1,9 @@
 import { gettingStarted } from './docs/getting-started.mjs';
 import { syntax } from './docs/syntax.mjs';
 import { tugqt } from './docs/tugqt.mjs';
+import { crossDatabase } from './docs/cross-database.mjs';
 
-export const docPages = [gettingStarted, syntax, tugqt];
+export const docPages = [gettingStarted, syntax, tugqt, crossDatabase];
 const origin = 'https://tugql.org';
 
 function escapeHtml(value) {
