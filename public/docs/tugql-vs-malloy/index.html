@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TugQL vs Malloy | TugQL</title>
+  <meta name="description" content="Compare TugQL queries and TugQT trees with Malloy sources, views and analytical modeling." />
+  <link rel="canonical" href="https://tugql.org/docs/tugql-vs-malloy/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="TugQL vs Malloy | TugQL" />
+  <meta property="og:description" content="Compare TugQL queries and TugQT trees with Malloy sources, views and analytical modeling." />
+  <meta property="og:url" content="https://tugql.org/docs/tugql-vs-malloy/" />
+  <meta property="og:image" content="https://tugql.org/og-card.png" />
+  <meta property="og:image:alt" content="TugQL" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TugQL vs Malloy | TugQL" />
+  <meta name="twitter:description" content="Compare TugQL queries and TugQT trees with Malloy sources, views and analytical modeling." />
+  <meta name="twitter:image" content="https://tugql.org/og-card.png" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/docs.css" />
+</head>
+<body>
+  <header class="AppHeader"><div class="AppHeader-inner"><a class="AppHeader-brand" href="/"><span class="AppHeader-brand-mark" aria-hidden="true">{}</span><span class="AppHeader-brand-word">TugQL</span></a><nav class="AppHeader-nav" aria-label="Primary"><a href="/">Home</a><a href="/docs/">Docs</a><a href="https://github.com/tugql/tugql">Source</a></nav></div></header>
+  <main class="container docs-page">
+    <nav aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/docs/">Docs</a> / TugQL vs Malloy</nav><h1>TugQL vs Malloy</h1><p class="docs-intro">Compare TugQL queries and TugQT trees with Malloy sources, views and analytical modeling.</p><section><h2>Two read-query examples</h2><p>These examples show each language's shape. They are not a claim that the two queries run against the same source or produce identical results.</p>
+<h3>TugQL</h3><pre><code>from Invoice as i
+group by i.CustomerId
+select i.CustomerId, COUNT(*) as InvoiceCount</code></pre>
+<h3>Malloy</h3><pre><code>run: flights -&gt; {
+  group_by: carrier
+  aggregate: flight_count
+}</code></pre>
+<p>The Malloy example is from the <a href="https://docs.malloydata.dev/documentation/language/query.html">Malloy query reference</a> and assumes a defined <code>flights</code> source with a <code>flight_count</code> measure. The TugQL form follows the <a href="/docs/syntax/">TugQL syntax reference</a>; its aggregate still needs support in the chosen implementation and adapter.</p></section>
+<section><h2>Model and execution path</h2><p>Malloy queries start from a source and transform it through views and stages. Its model can define reusable dimensions, measures and join relationships. Malloy compiles queries to SQL for supported database connections. The <a href="https://docs.malloydata.dev/documentation/language/query.html">query reference</a> and <a href="https://docs.malloydata.dev/documentation/language/source.html">source reference</a> describe those concepts.</p>
+<p>TugQL is a SQL-like read-query language with a structured YAML/JSON representation called TugQT. Its Go implementation resolves a query to DALgo's model, then uses an adapter. That includes non-SQL paths such as Git-backed inGitDB, subject to feature and adapter support. TugQT can be reviewed as a query tree in Git; it is not a replacement for Malloy's semantic modeling features.</p></section>
+<section><h2>Which one fits?</h2><p>Choose Malloy when the main task is reusable analytical modeling and exploration over its supported SQL connections. Consider TugQL when a caller needs a read-query representation that can target DALgo-backed sources, including a Git-backed source, or wants to save and diff the structured query itself. Verify the specific backend and language feature before relying on portability.</p>
+<p>Sources: <a href="https://docs.malloydata.dev/documentation/language/query.html">Malloy query reference</a>; <a href="https://github.com/tugql/tugql">TugQL specification</a>; <a href="https://github.com/dal-go/dalgo/tree/main/tugql">DALgo TugQL implementation</a>.</p></section><p><a href="/docs/">All documentation</a></p>
+  </main>
+  <footer class="AppFooter"><div class="container AppFooter-inner"><a href="/">TugQL</a><a href="https://github.com/tugql/tugql">Specification source</a></div></footer>
+</body>
+</html>
