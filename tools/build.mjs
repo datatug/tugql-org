@@ -5,6 +5,7 @@ import { langs, localeHref, canonicalUrl } from './languages.mjs';
 import { translations } from './translations.mjs';
 import { HERO_QUERY, highlightTugQL, tryInDataTugUrl } from './hero.mjs';
 import { renderTechStack, techStackCopy } from './tech-stack.mjs';
+import { docPages, renderDocPage, renderDocsIndex } from './docs.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = resolve(__dirname, '..');
@@ -184,7 +185,7 @@ ${structuredData}
       <a href="#mapping">${t.nav.mapping}</a>
       <a href="#scope">${t.nav.scope}</a>
       <a href="#stack">${t.nav.stack}</a>
-      <a href="#implementations">${t.nav.implementations}</a>
+      <a href="#implementations">${t.nav.implementations}</a>${lang.code === 'en' ? '\n      <a href="/docs/">Docs</a>' : ''}
     </nav>
 
     <div class="AppHeader-actions">
@@ -534,11 +535,15 @@ function renderSitemap() {
 ${alternates}
   </url>`;
   })).join('\n');
+  const docsUrls = ['docs/', ...docPages.map(page => `docs/${page.slug}/`)]
+    .map(path => `  <url><loc>https://tugql.org/${path}</loc><lastmod>${today}</lastmod></url>`)
+    .join('\n');
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${urls}
+${docsUrls}
 </urlset>
 `;
 }
@@ -562,6 +567,15 @@ export function buildAll() {
     const techStackDir = resolve(publicDir, lang.code === 'en' ? 'about/tech-stack' : `${lang.code}/about/tech-stack`);
     mkdirSync(techStackDir, { recursive: true });
     writeFileSync(resolve(techStackDir, 'index.html'), renderTechStack(lang), 'utf8');
+  }
+
+  const docsDir = resolve(publicDir, 'docs');
+  mkdirSync(docsDir, { recursive: true });
+  writeFileSync(resolve(docsDir, 'index.html'), renderDocsIndex(), 'utf8');
+  for (const page of docPages) {
+    const pageDir = resolve(docsDir, page.slug);
+    mkdirSync(pageDir, { recursive: true });
+    writeFileSync(resolve(pageDir, 'index.html'), renderDocPage(page), 'utf8');
   }
 
   // Update sitemap.xml

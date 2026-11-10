@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Get started with TugQL | TugQL</title>
+  <meta name="description" content="Read a TugQL query, learn its source, filter, order and projection stages, and find the Go and TypeScript implementations." />
+  <link rel="canonical" href="https://tugql.org/docs/getting-started/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Get started with TugQL | TugQL" />
+  <meta property="og:description" content="Read a TugQL query, learn its source, filter, order and projection stages, and find the Go and TypeScript implementations." />
+  <meta property="og:url" content="https://tugql.org/docs/getting-started/" />
+  <meta property="og:image" content="https://tugql.org/og-card.png" />
+  <meta property="og:image:alt" content="TugQL" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Get started with TugQL | TugQL" />
+  <meta name="twitter:description" content="Read a TugQL query, learn its source, filter, order and projection stages, and find the Go and TypeScript implementations." />
+  <meta name="twitter:image" content="https://tugql.org/og-card.png" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/docs.css" />
+</head>
+<body>
+  <header class="AppHeader"><div class="AppHeader-inner"><a class="AppHeader-brand" href="/"><span class="AppHeader-brand-mark" aria-hidden="true">{}</span><span class="AppHeader-brand-word">TugQL</span></a><nav class="AppHeader-nav" aria-label="Primary"><a href="/">Home</a><a href="/docs/">Docs</a><a href="https://github.com/tugql/tugql">Source</a></nav></div></header>
+  <main class="container docs-page">
+    <nav aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/docs/">Docs</a> / Get started with TugQL</nav><h1>Get started with TugQL</h1><p class="docs-intro">Read a TugQL query, learn its source, filter, order and projection stages, and find the Go and TypeScript implementations.</p><section><h2>Read a query</h2><p>This query reads invoices, keeps IDs above 10, orders by ID, and returns one field. <code>Invoice</code> is a source name; the application must bind it to a database.</p>
+<pre><code>from Invoice as i
+where i.InvoiceId &gt; 10
+order by i.InvoiceId
+select i.InvoiceId</code></pre>
+<p>TugQL puts the projection at the end, after the source and filters. It is SQL-like text, not SQL sent directly to PostgreSQL or Firestore.</p></section>
+<section><h2>Parse and resolve in Go</h2><p>Install the <a href="https://github.com/dal-go/dalgo/tree/main/tugql">Go library</a>, then provide the fields this caller is allowed to query. Parsing checks syntax; resolution checks names and permissions against the supplied schema and lowers the query to a DALgo structured query. This example resolves one output column; it does not connect to a database.</p>
+<pre><code>go get github.com/dal-go/dalgo/tugql</code></pre>
+<pre><code>package main
+
+import (
+  "fmt"
+  "github.com/dal-go/dalgo/tugql"
+)
+
+func main() {
+  source := "from Invoice as i\nwhere i.InvoiceId &gt; 10\norder by i.InvoiceId\nselect i.InvoiceId"
+  doc, diagnostics := tugql.ParseTugQL(source)
+  if len(diagnostics) != 0 {
+    fmt.Println(diagnostics)
+    return
+  }
+  context := tugql.TugQLResolveContext{
+    AuthorizedSchemas: []tugql.TugQLAuthorizedSchema{{
+      Version: "schema-r1",
+      Tables: []tugql.TugQLTable{{
+        Name: "Invoice",
+        Fields: []tugql.TugQLField{{Name: "InvoiceId", Type: "integer", Authorized: true}},
+      }},
+    }},
+  }
+  resolved, diagnostics := tugql.ResolveTugQL(doc, context)
+  if len(diagnostics) != 0 {
+    fmt.Println(diagnostics)
+    return
+  }
+  fmt.Printf("resolved %d output column(s)\n", len(resolved.Columns))
+}</code></pre>
+<p>Expected output: <code>resolved 1 output column(s)</code>. The <a href="https://github.com/dal-go/dalgo-js">TypeScript core</a> has separate parsing and resolution APIs; check its README and adapter inventory for supported execution paths.</p></section>
+<section><h2>Try the connected example</h2><p>The <a href="/#example">homepage example</a> declares Chinook and <code>geo-ingitdb</code>, joins their sources, and opens in the DataTug browser. It is a separate executable example with two demo references. The executing tool still applies its own access rules.</p>
+<p><a href="https://datatug.app/try#tugql=H4sIAAAAAAAAE2WQwW7CMBBE7_6KuQUk4qjXSFzaUw-VKrU9o43jhi3G68Z2EH9fJYRAxZ5G63kzK5clxFv8ZtufN0gnQUuJGoo2qkVhpQCzZy9ywBbFPqUQ66oyTnKrJVg_UHapbbSRYzU8VQtZzVShgM4KxrkL6Djt84Vi33Fqm6qzUs66UGv13cvxWl3Xr34QNhYUwepH2I-hdW0k-9Sfd-R4OpciSAHiwfqZnWPfvVws2IL0ZLvDg4TsKLH43akZ4XCBSZuFCletul5yQHN-yN4g6FuUkr61_ej7lEQOrY1GReusSdN3PlxGEbNUwMfX24r1RK7Hl0kp_GsY9--3vvUfdkW5jssBAAA">Try the connected query in DataTug</a></p>
+<p><a href="https://github.com/tugql/tugql/blob/main/reference/cross-database.md">Read the cross-database reference</a> for the <code>databases</code> block and <code>alias::</code> source syntax.</p></section>
+<section><h2>Save the query as data</h2><p>TugQT is the structured YAML/JSON tree of a TugQL query, useful for reviewable saved queries. The <a href="https://dalgo.io/tugql/schema.json">published JSON Schema</a> validates the Go library's YAML serialization of a structured query. The versioned text parser tree is a separate representation. The <a href="https://github.com/tugql/tugql">specification repository</a> contains current references; the implementation repositories contain executable behavior and tests.</p></section><p><a href="/docs/">All documentation</a></p>
+  </main>
+  <footer class="AppFooter"><div class="container AppFooter-inner"><a href="/">TugQL</a><a href="https://github.com/tugql/tugql">Specification source</a></div></footer>
+</body>
+</html>
