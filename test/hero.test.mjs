@@ -47,4 +47,14 @@ describe('hero "Try in DataTug.app" button', () => {
       assert.equal(decodeTryUrl(href[1]), HERO_QUERY);
     });
   }
+
+  it('cross-database tutorial opens the exact query it displays', () => {
+    const html = readFileSync(resolve(root, 'public/docs/cross-database/index.html'), 'utf8');
+    const shown = html.match(/<pre><code>([\s\S]*?)<\/code><\/pre>/);
+    assert.ok(shown);
+    assert.equal(unhighlight(shown[1]), HERO_QUERY);
+    const href = html.match(/<a href="(https:\/\/datatug\.app\/try#tugql=[^"]+)">Open this exact query in DataTug<\/a>/);
+    assert.ok(href);
+    assert.equal(decodeTryUrl(href[1]), HERO_QUERY);
+  });
 });
