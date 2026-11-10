@@ -9,8 +9,9 @@ import { compareMalloy } from './docs/tugql-vs-malloy.mjs';
 import { compareSql } from './docs/tugql-vs-sql.mjs';
 import { howtoGit } from './docs/query-git-ingitdb.mjs';
 import { howtoFirestore } from './docs/query-firestore.mjs';
+import { examples } from './docs/examples.mjs';
 
-export const docPages = [gettingStarted, syntax, tugqt, crossDatabase, spec, faq, comparePrql, compareMalloy, compareSql, howtoGit, howtoFirestore];
+export const docPages = [gettingStarted, syntax, tugqt, crossDatabase, spec, faq, comparePrql, compareMalloy, compareSql, howtoGit, howtoFirestore, examples];
 const origin = 'https://tugql.org';
 
 function escapeHtml(value) {

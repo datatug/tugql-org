@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TugQL examples | TugQL</title>
+  <meta name="description" content="Read complete TugQL examples for a Git-backed source and a cross-database join, with their execution boundaries stated." />
+  <link rel="canonical" href="https://tugql.org/docs/examples/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="TugQL examples | TugQL" />
+  <meta property="og:description" content="Read complete TugQL examples for a Git-backed source and a cross-database join, with their execution boundaries stated." />
+  <meta property="og:url" content="https://tugql.org/docs/examples/" />
+  <meta property="og:image" content="https://tugql.org/og-card.png" />
+  <meta property="og:image:alt" content="TugQL" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TugQL examples | TugQL" />
+  <meta name="twitter:description" content="Read complete TugQL examples for a Git-backed source and a cross-database join, with their execution boundaries stated." />
+  <meta name="twitter:image" content="https://tugql.org/og-card.png" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/docs.css" />
+</head>
+<body>
+  <header class="AppHeader"><div class="AppHeader-inner"><a class="AppHeader-brand" href="/"><span class="AppHeader-brand-mark" aria-hidden="true">{}</span><span class="AppHeader-brand-word">TugQL</span></a><nav class="AppHeader-nav" aria-label="Primary"><a href="/">Home</a><a href="/docs/">Docs</a><a href="https://github.com/tugql/tugql">Source</a></nav></div></header>
+  <main class="container docs-page">
+    <nav aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/docs/">Docs</a> / TugQL examples</nav><h1>TugQL examples</h1><p class="docs-intro">Read complete TugQL examples for a Git-backed source and a cross-database join, with their execution boundaries stated.</p><section><h2>Join Chinook with geo-ingitdb</h2><pre><code><span class="pl-c">-- one query, two databases</span>
+<span class="pl-k">databases</span> (
+  chinook = <span class="pl-s">&#39;https://cloud.openvaultdb.com/v1/databases/chinook&#39;</span>
+  geo     = <span class="pl-s">&#39;https://github.com/ingitdb/geo-ingitdb&#39;</span>
+)
+<span class="pl-k">from</span> chinook::Invoice <span class="pl-k">as</span> i
+<span class="pl-k">join</span> geo::country_aliases <span class="pl-k">as</span> a
+  <span class="pl-k">on</span> i.BillingCountry = a.alias
+<span class="pl-k">join</span> geo::population_wb <span class="pl-k">as</span> p
+  <span class="pl-k">on</span> a.country = p.country
+<span class="pl-k">group</span> <span class="pl-k">by</span> i.BillingCountry, p.population
+<span class="pl-k">order</span> <span class="pl-k">by</span> Total <span class="pl-k">desc</span>
+<span class="pl-k">select</span> (
+  i.BillingCountry <span class="pl-k">as</span> Country
+  SUM(i.Total) <span class="pl-k">as</span> Total
+  p.population <span class="pl-k">as</span> Population
+)</code></pre>
+<p><a href="https://datatug.app/try#tugql=H4sIAAAAAAAAE2WQwW7CMBBE7_6KuQUk4qjXSFzaUw-VKrU9o43jhi3G68Z2EH9fJYRAxZ5G63kzK5clxFv8ZtufN0gnQUuJGoo2qkVhpQCzZy9ywBbFPqUQ66oyTnKrJVg_UHapbbSRYzU8VQtZzVShgM4KxrkL6Djt84Vi33Fqm6qzUs66UGv13cvxWl3Xr34QNhYUwepH2I-hdW0k-9Sfd-R4OpciSAHiwfqZnWPfvVws2IL0ZLvDg4TsKLH43akZ4XCBSZuFCletul5yQHN-yN4g6FuUkr61_ej7lEQOrY1GReusSdN3PlxGEbNUwMfX24r1RK7Hl0kp_GsY9--3vvUfdkW5jssBAAA">Open this exact TugQL text in DataTug</a>. The link puts the text in a URL fragment; execution depends on access to both sources. The <a href="/docs/cross-database/">tutorial</a> explains each clause and the federated execution path.</p></section>
+<section><h2>Read country aliases from a Git-backed source</h2><pre><code>databases (
+  geo = 'https://github.com/ingitdb/geo-ingitdb'
+)
+from geo::country_aliases as a
+where a.country = 'ie'
+select a.alias, a.country</code></pre>
+<p>The <a href="/docs/query-git-ingitdb/">Git-backed how-to</a> shows the source record, adapter and policy requirements. The query text alone does not mount or authorize the repository.</p></section>
+<section><h2>Where to run them</h2><p>These are TugQL queries. <a href="https://querydock.run/">QueryDock</a> currently runs SQL with PGlite, SQLite and DuckDB, so a QueryDock run link for these examples would not execute them. For text syntax, see the <a href="/docs/syntax/">cheat sheet</a>; for the structured YAML form, see <a href="/docs/tugqt/">TugQT</a>.</p></section><p><a href="/docs/">All documentation</a></p>
+  </main>
+  <footer class="AppFooter"><div class="container AppFooter-inner"><a href="/">TugQL</a><a href="https://github.com/tugql/tugql">Specification source</a></div></footer>
+</body>
+</html>
