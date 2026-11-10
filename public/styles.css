@@ -335,6 +335,12 @@ code, pre, kbd { font-family: var(--f-mono); }
   letter-spacing: -.025em;
   color: var(--fg-default);
 }
+.hero-name {
+  display: block;
+  margin-bottom: 12px;
+  font-size: .34em;
+  letter-spacing: 0;
+}
 .hero-line { display: block; }
 .hero-accent {
   background: linear-gradient(120deg, var(--accent-fg), #8250df);

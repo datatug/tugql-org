@@ -54,6 +54,16 @@ export function renderTechStack(lang) {
   <title>${t.title} | TugQL</title>
   <meta name="description" content="${t.description}" />
   <link rel="canonical" href="${canonical}" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="${t.title} | TugQL" />
+  <meta property="og:description" content="${t.description}" />
+  <meta property="og:url" content="${canonical}" />
+  <meta property="og:image" content="https://tugql.org/og-card.png" />
+  <meta property="og:image:alt" content="TugQL" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="${t.title} | TugQL" />
+  <meta name="twitter:description" content="${t.description}" />
+  <meta name="twitter:image" content="https://tugql.org/og-card.png" />
   ${alternateLinks}
   <link rel="stylesheet" href="/styles.css" />
   <script type="application/ld+json">${jsonLd}</script>

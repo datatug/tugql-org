@@ -116,7 +116,15 @@ function renderPage(lang) {
       </article>`;
   }).join('\n\n');
 
-  const implCards = t.implementations.cards.map((c) => {
+  const implCards = [...t.implementations.cards, {
+    badge: 'TypeScript',
+    title: 'dal-go/dalgo-js',
+    desc: lang.code === 'en'
+      ? '@dalgo/core includes TugQL parsing, formatting, resolution, and a generic joined-query executor. Adapter support varies.'
+      : 'TugQL · @dalgo/core',
+    meta: 'github.com/dal-go/dalgo-js',
+    url: 'https://github.com/dal-go/dalgo-js',
+  }].map((c) => {
     return `      <li><a class="adapter Box${c.url.includes('tugql/tugql') ? ' adapter-core' : ''}" href="${c.url}" rel="noopener">
         <span class="adapter-kind">${c.badge}</span>
         <h3>${c.title}</h3>
@@ -140,6 +148,15 @@ ${alternateLinks}
   <meta property="og:description" content="${t.meta.ogDescription}" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="${canonical}" />
+  <meta property="og:image" content="https://tugql.org/og-card.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="TugQL" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="${t.meta.title}" />
+  <meta name="twitter:description" content="${t.meta.ogDescription}" />
+  <meta name="twitter:image" content="https://tugql.org/og-card.png" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%230d1117'/><text x='50%25' y='53%25' text-anchor='middle' dominant-baseline='middle' font-family='ui-monospace,monospace' font-size='22' font-weight='800' fill='%232f81f7'>{}</text></svg>" />
   <link rel="stylesheet" href="/styles.css" />
 ${structuredData}
@@ -211,6 +228,7 @@ ${langSwitcherOptions}
       </div>
 
       <h1 class="hero-title">
+        <span class="hero-name">TugQL</span>
         <span class="hero-line">${t.hero.titleLine1}</span>
         <span class="hero-line"><span class="hero-accent">${t.hero.titleAccent}</span>${t.hero.titleLine2}</span>
       </h1>
