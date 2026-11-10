@@ -6,8 +6,9 @@ import { spec } from './docs/spec.mjs';
 import { faq } from './docs/faq.mjs';
 import { comparePrql } from './docs/tugql-vs-prql.mjs';
 import { compareMalloy } from './docs/tugql-vs-malloy.mjs';
+import { compareSql } from './docs/tugql-vs-sql.mjs';
 
-export const docPages = [gettingStarted, syntax, tugqt, crossDatabase, spec, faq, comparePrql, compareMalloy];
+export const docPages = [gettingStarted, syntax, tugqt, crossDatabase, spec, faq, comparePrql, compareMalloy, compareSql];
 const origin = 'https://tugql.org';
 
 function escapeHtml(value) {
