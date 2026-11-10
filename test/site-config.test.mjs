@@ -161,12 +161,13 @@ describe('tugql.org is served as static assets only', () => {
     assert.equal(descriptions.size, langs.length);
   });
 
-  it('publishes crawlable English documentation URLs', () => {
+  it('publishes crawlable English documentation URLs', async () => {
+    const { docPages } = await import('../tools/docs.mjs');
     const sitemap = readFileSync(resolve(root, 'public/sitemap.xml'), 'utf8');
     const home = readFileSync(resolve(root, 'public/index.html'), 'utf8');
     assert.match(home, /href="\/docs\/">Docs<\/a>/);
     assert.match(readFileSync(resolve(root, 'public/_redirects'), 'utf8'), /\/getting-started \/docs\/getting-started\/ 301/);
-    for (const route of ['docs', 'docs/getting-started']) {
+    for (const route of ['docs', ...docPages.map(page => `docs/${page.slug}`)]) {
       const html = readFileSync(resolve(root, 'public', route, 'index.html'), 'utf8');
       assert.match(html, /<html lang="en">/);
       assert.match(html, /<h1>[^<]+<\/h1>/);
