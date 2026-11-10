@@ -30,9 +30,10 @@ describe('tugql.org is served as static assets only', () => {
   });
 
   it('ships the landing page, robots and sitemap', () => {
-    for (const f of ['index.html', '404.html', 'llms.txt', 'robots.txt', 'sitemap.xml', 'styles.css']) {
+    for (const f of ['index.html', '404.html', 'llms.txt', 'robots.txt', 'sitemap.xml', 'styles.css', 'og-card.png', '_headers']) {
       assert.ok(existsSync(resolve(root, 'public', f)), `missing public/${f}`);
     }
+    assert.match(readFileSync(resolve(root, 'public/_headers'), 'utf8'), /Strict-Transport-Security: max-age=31536000/);
   });
 
   it('ships all 14 localized landing pages with metadata and language switchers', async () => {
@@ -49,6 +50,10 @@ describe('tugql.org is served as static assets only', () => {
       assert.ok(existsSync(fullPath), `missing ${pageRelPath}`);
 
       const html = readFileSync(fullPath, 'utf8');
+      assert.match(html, /<h1 class="hero-title">\s*<span class="hero-name">TugQL<\/span>/);
+      assert.match(html, /<meta property="og:image" content="https:\/\/tugql\.org\/og-card\.png" \/>/);
+      assert.match(html, /<meta name="twitter:card" content="summary_large_image" \/>/);
+      assert.match(html, /href="https:\/\/github\.com\/dal-go\/dalgo-js"/);
 
       // One SDK and one accessible, localized custom trigger per generated page.
       assert.equal((html.match(/src="https:\/\/improveit\.now\/widget\.js"/g) || []).length, 1);
@@ -141,6 +146,8 @@ describe('tugql.org is served as static assets only', () => {
       assert.match(html, new RegExp(`<html lang="${lang.tag}">`));
       assert.ok(html.includes(`<link rel="canonical" href="${canonical}" />`));
       assert.ok(html.includes('<h1>'));
+      assert.ok(html.includes('<meta property="og:image" content="https://tugql.org/og-card.png" />'));
+      assert.ok(html.includes('<meta name="twitter:card" content="summary_large_image" />'));
       const description = html.match(/<meta name="description" content="([^"]+)" \/>/)?.[1];
       assert.ok(description, `${lang.code} description`);
       assert.ok([...description].length >= 120 && [...description].length <= 160, `${lang.code} description length`);
