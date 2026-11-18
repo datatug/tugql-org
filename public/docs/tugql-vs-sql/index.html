@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TugQL vs SQL | TugQL</title>
+  <meta name="description" content="See the clause order and execution difference between a TugQL read query and a SQL SELECT statement." />
+  <link rel="canonical" href="https://tugql.org/docs/tugql-vs-sql/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="TugQL vs SQL | TugQL" />
+  <meta property="og:description" content="See the clause order and execution difference between a TugQL read query and a SQL SELECT statement." />
+  <meta property="og:url" content="https://tugql.org/docs/tugql-vs-sql/" />
+  <meta property="og:image" content="https://tugql.org/og-card.png" />
+  <meta property="og:image:alt" content="TugQL" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TugQL vs SQL | TugQL" />
+  <meta name="twitter:description" content="See the clause order and execution difference between a TugQL read query and a SQL SELECT statement." />
+  <meta name="twitter:image" content="https://tugql.org/og-card.png" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/docs.css" />
+</head>
+<body>
+  <header class="AppHeader"><div class="AppHeader-inner"><a class="AppHeader-brand" href="/"><span class="AppHeader-brand-mark" aria-hidden="true">{}</span><span class="AppHeader-brand-word">TugQL</span></a><nav class="AppHeader-nav" aria-label="Primary"><a href="/">Home</a><a href="/docs/">Docs</a><a href="https://github.com/tugql/tugql">Source</a></nav></div></header>
+  <main class="container docs-page">
+    <nav aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/docs/">Docs</a> / TugQL vs SQL</nav><h1>TugQL vs SQL</h1><p class="docs-intro">See the clause order and execution difference between a TugQL read query and a SQL SELECT statement.</p><section><h2>A filtered read</h2><p>Both examples describe a filtered projection from a table named <code>Invoice</code>. They are illustrative syntax; actual results depend on the data and executor.</p>
+<h3>TugQL</h3><pre><code>from Invoice as i
+where i.InvoiceId &gt; 1
+order by i.InvoiceId asc
+select i.InvoiceId, i.CustomerId</code></pre>
+<h3>SQL</h3><pre><code>SELECT i.InvoiceId, i.CustomerId
+FROM Invoice AS i
+WHERE i.InvoiceId &gt; 1
+ORDER BY i.InvoiceId ASC;</code></pre>
+<p>TugQL places <code>select</code> after the source and modifiers; SQL places <code>SELECT</code> first. Compare the <a href="/docs/syntax/">TugQL syntax sheet</a> with the <a href="https://www.postgresql.org/docs/current/sql-select.html">PostgreSQL SELECT reference</a>.</p></section>
+<section><h2>What the executor receives</h2><p>A SQL database executes SQL in its dialect. TugQL text is parsed into a structured query and resolved for a DALgo-backed executor; it is not passed as raw SQL to PostgreSQL, SQLite or another backend. The structured TugQT form can be serialized to YAML or JSON for review and reuse. The <a href="/docs/tugqt/">TugQT guide</a> shows a saved tree.</p>
+<p>SQL dialect features vary. TugQL also has its own syntax and implementation limits, and each DALgo adapter has different capabilities. Do not assume that a SQL statement can be pasted into TugQL, or that a TugQL construct executes on every adapter.</p></section>
+<section><h2>Which one fits?</h2><p>Use SQL when you are working directly with a SQL engine and need its dialect and database features. Consider TugQL when a tool needs a read-query model that can be bound to supported SQL or non-SQL DALgo sources, or a reviewable query tree. Verify the exact query and adapter before relying on cross-backend execution.</p>
+<p>Sources: <a href="https://www.postgresql.org/docs/current/sql-select.html">PostgreSQL SELECT documentation</a>; <a href="https://github.com/tugql/tugql">TugQL specification</a>; <a href="https://github.com/dal-go/dalgo/tree/main/tugql">DALgo implementation</a>.</p></section><p><a href="/docs/">All documentation</a></p>
+  </main>
+  <footer class="AppFooter"><div class="container AppFooter-inner"><a href="/">TugQL</a><a href="https://github.com/tugql/tugql">Specification source</a></div></footer>
+</body>
+</html>

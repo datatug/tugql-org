@@ -5,6 +5,8 @@ import { langs, localeHref, canonicalUrl } from './languages.mjs';
 import { translations } from './translations.mjs';
 import { HERO_QUERY, highlightTugQL, tryInDataTugUrl } from './hero.mjs';
 import { renderTechStack, techStackCopy } from './tech-stack.mjs';
+import { docPages, renderDocPage, renderDocsIndex } from './docs.mjs';
+import { specSourcePaths } from './docs/spec.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = resolve(__dirname, '..');
@@ -116,7 +118,15 @@ function renderPage(lang) {
       </article>`;
   }).join('\n\n');
 
-  const implCards = t.implementations.cards.map((c) => {
+  const implCards = [...t.implementations.cards, {
+    badge: 'TypeScript',
+    title: 'dal-go/dalgo-js',
+    desc: lang.code === 'en'
+      ? '@dalgo/core includes TugQL parsing, formatting, resolution, and a generic joined-query executor. Adapter support varies.'
+      : 'TugQL · @dalgo/core',
+    meta: 'github.com/dal-go/dalgo-js',
+    url: 'https://github.com/dal-go/dalgo-js',
+  }].map((c) => {
     return `      <li><a class="adapter Box${c.url.includes('tugql/tugql') ? ' adapter-core' : ''}" href="${c.url}" rel="noopener">
         <span class="adapter-kind">${c.badge}</span>
         <h3>${c.title}</h3>
@@ -140,6 +150,15 @@ ${alternateLinks}
   <meta property="og:description" content="${t.meta.ogDescription}" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="${canonical}" />
+  <meta property="og:image" content="https://tugql.org/og-card.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="TugQL" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="${t.meta.title}" />
+  <meta name="twitter:description" content="${t.meta.ogDescription}" />
+  <meta name="twitter:image" content="https://tugql.org/og-card.png" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%230d1117'/><text x='50%25' y='53%25' text-anchor='middle' dominant-baseline='middle' font-family='ui-monospace,monospace' font-size='22' font-weight='800' fill='%232f81f7'>{}</text></svg>" />
   <link rel="stylesheet" href="/styles.css" />
 ${structuredData}
@@ -167,7 +186,7 @@ ${structuredData}
       <a href="#mapping">${t.nav.mapping}</a>
       <a href="#scope">${t.nav.scope}</a>
       <a href="#stack">${t.nav.stack}</a>
-      <a href="#implementations">${t.nav.implementations}</a>
+      <a href="#implementations">${t.nav.implementations}</a>${lang.code === 'en' ? '\n      <a href="/docs/">Docs</a>' : ''}
     </nav>
 
     <div class="AppHeader-actions">
@@ -211,6 +230,7 @@ ${langSwitcherOptions}
       </div>
 
       <h1 class="hero-title">
+        <span class="hero-name">TugQL</span>
         <span class="hero-line">${t.hero.titleLine1}</span>
         <span class="hero-line"><span class="hero-accent">${t.hero.titleAccent}</span>${t.hero.titleLine2}</span>
       </h1>
@@ -516,11 +536,15 @@ function renderSitemap() {
 ${alternates}
   </url>`;
   })).join('\n');
+  const docsUrls = ['docs/', ...docPages.map(page => `docs/${page.slug}/`), ...specSourcePaths]
+    .map(path => `  <url><loc>https://tugql.org/${path}</loc><lastmod>${today}</lastmod></url>`)
+    .join('\n');
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${urls}
+${docsUrls}
 </urlset>
 `;
 }
@@ -544,6 +568,15 @@ export function buildAll() {
     const techStackDir = resolve(publicDir, lang.code === 'en' ? 'about/tech-stack' : `${lang.code}/about/tech-stack`);
     mkdirSync(techStackDir, { recursive: true });
     writeFileSync(resolve(techStackDir, 'index.html'), renderTechStack(lang), 'utf8');
+  }
+
+  const docsDir = resolve(publicDir, 'docs');
+  mkdirSync(docsDir, { recursive: true });
+  writeFileSync(resolve(docsDir, 'index.html'), renderDocsIndex(), 'utf8');
+  for (const page of docPages) {
+    const pageDir = resolve(docsDir, page.slug);
+    mkdirSync(pageDir, { recursive: true });
+    writeFileSync(resolve(pageDir, 'index.html'), renderDocPage(page), 'utf8');
   }
 
   // Update sitemap.xml

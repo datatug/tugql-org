@@ -4,6 +4,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runInNewContext } from 'node:vm';
+import { createHash } from 'node:crypto';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 // wrangler.jsonc carries whole-line // comments; strip them before parsing.
@@ -30,9 +31,10 @@ describe('tugql.org is served as static assets only', () => {
   });
 
   it('ships the landing page, robots and sitemap', () => {
-    for (const f of ['index.html', '404.html', 'llms.txt', 'robots.txt', 'sitemap.xml', 'styles.css']) {
+    for (const f of ['index.html', '404.html', 'llms.txt', 'robots.txt', 'sitemap.xml', 'styles.css', 'og-card.png', '_headers']) {
       assert.ok(existsSync(resolve(root, 'public', f)), `missing public/${f}`);
     }
+    assert.match(readFileSync(resolve(root, 'public/_headers'), 'utf8'), /Strict-Transport-Security: max-age=31536000/);
   });
 
   it('ships all 14 localized landing pages with metadata and language switchers', async () => {
@@ -49,6 +51,10 @@ describe('tugql.org is served as static assets only', () => {
       assert.ok(existsSync(fullPath), `missing ${pageRelPath}`);
 
       const html = readFileSync(fullPath, 'utf8');
+      assert.match(html, /<h1 class="hero-title">\s*<span class="hero-name">TugQL<\/span>/);
+      assert.match(html, /<meta property="og:image" content="https:\/\/tugql\.org\/og-card\.png" \/>/);
+      assert.match(html, /<meta name="twitter:card" content="summary_large_image" \/>/);
+      assert.match(html, /href="https:\/\/github\.com\/dal-go\/dalgo-js"/);
 
       // One SDK and one accessible, localized custom trigger per generated page.
       assert.equal((html.match(/src="https:\/\/improveit\.now\/widget\.js"/g) || []).length, 1);
@@ -141,6 +147,8 @@ describe('tugql.org is served as static assets only', () => {
       assert.match(html, new RegExp(`<html lang="${lang.tag}">`));
       assert.ok(html.includes(`<link rel="canonical" href="${canonical}" />`));
       assert.ok(html.includes('<h1>'));
+      assert.ok(html.includes('<meta property="og:image" content="https://tugql.org/og-card.png" />'));
+      assert.ok(html.includes('<meta name="twitter:card" content="summary_large_image" />'));
       const description = html.match(/<meta name="description" content="([^"]+)" \/>/)?.[1];
       assert.ok(description, `${lang.code} description`);
       assert.ok([...description].length >= 120 && [...description].length <= 160, `${lang.code} description length`);
@@ -152,6 +160,43 @@ describe('tugql.org is served as static assets only', () => {
       assert.ok(home.includes(`href="${localeHref(lang.code, 'about/tech-stack/')}"`));
     }
     assert.equal(descriptions.size, langs.length);
+  });
+
+  it('publishes crawlable English documentation URLs', async () => {
+    const { docPages } = await import('../tools/docs.mjs');
+    const sitemap = readFileSync(resolve(root, 'public/sitemap.xml'), 'utf8');
+    const home = readFileSync(resolve(root, 'public/index.html'), 'utf8');
+    assert.match(home, /href="\/docs\/">Docs<\/a>/);
+    assert.match(readFileSync(resolve(root, 'public/_redirects'), 'utf8'), /\/getting-started \/docs\/getting-started\/ 301/);
+    for (const route of ['docs', ...docPages.map(page => `docs/${page.slug}`)]) {
+      const html = readFileSync(resolve(root, 'public', route, 'index.html'), 'utf8');
+      assert.match(html, /<html lang="en">/);
+      assert.match(html, /<h1>[^<]+<\/h1>/);
+      assert.match(html, new RegExp(`<link rel="canonical" href="https://tugql.org/${route}/" />`));
+      assert.ok(sitemap.includes(`<loc>https://tugql.org/${route}/</loc>`));
+    }
+  });
+
+  it('keeps the hosted schema byte-identical to its pinned source snapshot', () => {
+    const schemaBytes = readFileSync(resolve(root, 'public/docs/schema.json'));
+    assert.equal(
+      createHash('sha256').update(schemaBytes).digest('hex'),
+      '754ae9dd049be7fdd7994e5effb6e598257580a4594d2fcfc0f631a8c4dce8ca',
+    );
+    const schema = JSON.parse(schemaBytes);
+    assert.equal(schema.$schema, 'https://json-schema.org/draft/2020-12/schema');
+    assert.match(schema.description, /YAML serialization of dalgo/);
+    const redirects = readFileSync(resolve(root, 'public/_redirects'), 'utf8');
+    assert.match(redirects, /\/spec \/docs\/spec\/ 301/);
+    const specHtml = readFileSync(resolve(root, 'public/docs/spec/index.html'), 'utf8');
+    assert.match(specHtml, /href="\/docs\/spec\/LICENSE\.txt"/);
+    assert.ok(existsSync(resolve(root, 'public/docs/spec/LICENSE.txt')));
+    const overview = readFileSync(resolve(root, 'public/docs/spec/README.md'), 'utf8');
+    assert.doesNotMatch(overview, /\]\(design\//);
+    for (const path of ['README.md', 'reference/aggregation.md', 'reference/comments.md', 'reference/cross-database.md', 'reference/negative-projection.md']) {
+      assert.ok(existsSync(resolve(root, 'public/docs/spec', path)));
+      assert.ok(readFileSync(resolve(root, 'public/sitemap.xml'), 'utf8').includes(`<loc>https://tugql.org/docs/spec/${path}</loc>`));
+    }
   });
 });
 

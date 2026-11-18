@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Join Chinook and geo-ingitdb with TugQL | TugQL</title>
+  <meta name="description" content="Walk through one TugQL read query that joins Chinook invoices to country aliases and population data in a Git-backed database." />
+  <link rel="canonical" href="https://tugql.org/docs/cross-database/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Join Chinook and geo-ingitdb with TugQL | TugQL" />
+  <meta property="og:description" content="Walk through one TugQL read query that joins Chinook invoices to country aliases and population data in a Git-backed database." />
+  <meta property="og:url" content="https://tugql.org/docs/cross-database/" />
+  <meta property="og:image" content="https://tugql.org/og-card.png" />
+  <meta property="og:image:alt" content="TugQL" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Join Chinook and geo-ingitdb with TugQL | TugQL" />
+  <meta name="twitter:description" content="Walk through one TugQL read query that joins Chinook invoices to country aliases and population data in a Git-backed database." />
+  <meta name="twitter:image" content="https://tugql.org/og-card.png" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/docs.css" />
+</head>
+<body>
+  <header class="AppHeader"><div class="AppHeader-inner"><a class="AppHeader-brand" href="/"><span class="AppHeader-brand-mark" aria-hidden="true">{}</span><span class="AppHeader-brand-word">TugQL</span></a><nav class="AppHeader-nav" aria-label="Primary"><a href="/">Home</a><a href="/docs/">Docs</a><a href="https://github.com/tugql/tugql">Source</a></nav></div></header>
+  <main class="container docs-page">
+    <nav aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/docs/">Docs</a> / Join Chinook and geo-ingitdb with TugQL</nav><h1>Join Chinook and geo-ingitdb with TugQL</h1><p class="docs-intro">Walk through one TugQL read query that joins Chinook invoices to country aliases and population data in a Git-backed database.</p><section><h2>The query</h2><p>This is the same source shown on the <a href="/#example">homepage</a>. It names the two data sources explicitly and projects country, total and population.</p>
+<pre><code><span class="pl-c">-- one query, two databases</span>
+<span class="pl-k">databases</span> (
+  chinook = <span class="pl-s">&#39;https://cloud.openvaultdb.com/v1/databases/chinook&#39;</span>
+  geo     = <span class="pl-s">&#39;https://github.com/ingitdb/geo-ingitdb&#39;</span>
+)
+<span class="pl-k">from</span> chinook::Invoice <span class="pl-k">as</span> i
+<span class="pl-k">join</span> geo::country_aliases <span class="pl-k">as</span> a
+  <span class="pl-k">on</span> i.BillingCountry = a.alias
+<span class="pl-k">join</span> geo::population_wb <span class="pl-k">as</span> p
+  <span class="pl-k">on</span> a.country = p.country
+<span class="pl-k">group</span> <span class="pl-k">by</span> i.BillingCountry, p.population
+<span class="pl-k">order</span> <span class="pl-k">by</span> Total <span class="pl-k">desc</span>
+<span class="pl-k">select</span> (
+  i.BillingCountry <span class="pl-k">as</span> Country
+  SUM(i.Total) <span class="pl-k">as</span> Total
+  p.population <span class="pl-k">as</span> Population
+)</code></pre>
+<p><a href="https://datatug.app/try#tugql=H4sIAAAAAAAAE2WQwW7CMBBE7_6KuQUk4qjXSFzaUw-VKrU9o43jhi3G68Z2EH9fJYRAxZ5G63kzK5clxFv8ZtufN0gnQUuJGoo2qkVhpQCzZy9ywBbFPqUQ66oyTnKrJVg_UHapbbSRYzU8VQtZzVShgM4KxrkL6Djt84Vi33Fqm6qzUs66UGv13cvxWl3Xr34QNhYUwepH2I-hdW0k-9Sfd-R4OpciSAHiwfqZnWPfvVws2IL0ZLvDg4TsKLH43akZ4XCBSZuFCletul5yQHN-yN4g6FuUkr61_ej7lEQOrY1GReusSdN3PlxGEbNUwMfX24r1RK7Hl0kp_GsY9--3vvUfdkW5jssBAAA">Open this exact query in DataTug</a>. The link carries the text in the URL fragment. Execution depends on DataTug's current access to both data sources; this page does not claim a fixed result set.</p></section>
+<section><h2>Read it in four steps</h2><ol>
+<li><code>databases</code> declares <code>chinook</code> and <code>geo</code>. The target strings identify the two sources; connection credentials stay outside the query.</li>
+<li><code>from chinook::Invoice</code> reads invoices. <code>join geo::country_aliases</code> matches the billing country to an alias, then <code>join geo::population_wb</code> adds population by canonical country.</li>
+<li><code>group by</code> prepares the aggregate. <code>SUM(i.Total)</code> computes the total for each group; <code>order by Total desc</code> requests a result order.</li>
+<li><code>select</code> names the three returned columns. Projection is the final text clause in TugQL.</li>
+</ol>
+<p>For a cross-database join, <code>on</code> is explicit because relationship metadata cannot be inferred across separate databases. The executing tool must check each source against that database's access policy.</p></section>
+<section><h2>What executes where</h2><p>The <a href="https://github.com/tugql/tugql/blob/main/reference/cross-database.md">cross-database reference</a> defines aliases, qualified sources and failure modes. The executing tool binds aliases to databases. Each source is read from its own database; the federated engine performs joins and grouping across them. A backend does not receive this entire text as native SQL.</p>
+<p><a href="https://github.com/ingitdb/geo-ingitdb">Inspect the geo-ingitdb source repository</a> and the <a href="https://github.com/dal-go/dalgo/tree/main/tugql">Go implementation</a> for the current execution contract.</p></section><p><a href="/docs/">All documentation</a></p>
+  </main>
+  <footer class="AppFooter"><div class="container AppFooter-inner"><a href="/">TugQL</a><a href="https://github.com/tugql/tugql">Specification source</a></div></footer>
+</body>
+</html>

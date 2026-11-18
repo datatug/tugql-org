@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TugQL FAQ | TugQL</title>
+  <meta name="description" content="Answers about the DTQL rename, TugQT, SQL-like syntax, backend support, schemas and where to try a query." />
+  <link rel="canonical" href="https://tugql.org/docs/faq/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="TugQL FAQ | TugQL" />
+  <meta property="og:description" content="Answers about the DTQL rename, TugQT, SQL-like syntax, backend support, schemas and where to try a query." />
+  <meta property="og:url" content="https://tugql.org/docs/faq/" />
+  <meta property="og:image" content="https://tugql.org/og-card.png" />
+  <meta property="og:image:alt" content="TugQL" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TugQL FAQ | TugQL" />
+  <meta name="twitter:description" content="Answers about the DTQL rename, TugQT, SQL-like syntax, backend support, schemas and where to try a query." />
+  <meta name="twitter:image" content="https://tugql.org/og-card.png" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/docs.css" />
+</head>
+<body>
+  <header class="AppHeader"><div class="AppHeader-inner"><a class="AppHeader-brand" href="/"><span class="AppHeader-brand-mark" aria-hidden="true">{}</span><span class="AppHeader-brand-word">TugQL</span></a><nav class="AppHeader-nav" aria-label="Primary"><a href="/">Home</a><a href="/docs/">Docs</a><a href="https://github.com/tugql/tugql">Source</a></nav></div></header>
+  <main class="container docs-page">
+    <nav aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/docs/">Docs</a> / TugQL FAQ</nav><h1>TugQL FAQ</h1><p class="docs-intro">Answers about the DTQL rename, TugQT, SQL-like syntax, backend support, schemas and where to try a query.</p><section><h2>Why did DTQL become TugQL?</h2><p>DTQL is the former name. <strong>TugQL</strong> is the canonical name of the SQL-like query language, and TugQT names its structured query tree. The <a href="https://github.com/tugql/tugql">specification repository</a> records the rename. On 10 November 2026, <code>http://dtql.org/</code> returned a 301 to <code>https://tugql.org/</code>.</p></section>
+<section><h2>Is TugQL SQL?</h2><p>TugQL has an SQL-like text form, but it is not a PostgreSQL or SQLite dialect and is not raw SQL sent to a database. Its structured form can be resolved to a DALgo query. A feature must be supported by the chosen implementation and backend; unsupported constructs should fail explicitly. See the <a href="/docs/syntax/">syntax cheat sheet</a>.</p></section>
+<section><h2>What is TugQT?</h2><p>TugQT is the structured YAML/JSON query tree associated with TugQL. It can be saved, reviewed and diffed as data. The Go library also publishes a JSON Schema for its YAML serialization of the core relational read-only subset. That schema is distinct from the versioned trees used by text authoring parsers. See the <a href="/docs/tugqt/">TugQT guide</a> and <a href="/docs/spec/">specification snapshot</a>.</p></section>
+<section><h2>Does the same query work on every backend?</h2><p>Portability is a goal of the language, but backend capabilities and adapter coverage vary. DALgo has paths for Git-backed, SQLite, PostgreSQL and Firestore data; a query that runs with one adapter is not proof that every adapter accepts it. Check the relevant <a href="https://dalgo.io/adapters/">adapter capabilities</a> and test the exact query on each target.</p></section>
+<section><h2>Can a query read more than one database?</h2><p>Yes, when the executing tool supplies the database bindings and federated execution path. Declare database aliases, qualify sources with <code>alias::</code>, and state cross-database join conditions explicitly. The tool must check every source against its database access policy. See the <a href="/docs/cross-database/">Chinook and geo-ingitdb example</a>.</p></section>
+<section><h2>Where can I try an example?</h2><p>The <a href="/docs/cross-database/">connected example</a> opens its exact TugQL text in DataTug. <a href="https://querydock.run/">QueryDock</a> is a separate SQL playground for PostgreSQL-compatible PGlite, SQLite and DuckDB; its present SQL editors should not be treated as TugQL execution.</p></section><p><a href="/docs/">All documentation</a></p>
+  </main>
+  <footer class="AppFooter"><div class="container AppFooter-inner"><a href="/">TugQL</a><a href="https://github.com/tugql/tugql">Specification source</a></div></footer>
+</body>
+</html>

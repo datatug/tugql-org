@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TugQL syntax cheat sheet | TugQL</title>
+  <meta name="description" content="The clause order, projection forms, source qualifiers, parameters and comments used in TugQL text queries." />
+  <link rel="canonical" href="https://tugql.org/docs/syntax/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="TugQL syntax cheat sheet | TugQL" />
+  <meta property="og:description" content="The clause order, projection forms, source qualifiers, parameters and comments used in TugQL text queries." />
+  <meta property="og:url" content="https://tugql.org/docs/syntax/" />
+  <meta property="og:image" content="https://tugql.org/og-card.png" />
+  <meta property="og:image:alt" content="TugQL" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TugQL syntax cheat sheet | TugQL" />
+  <meta name="twitter:description" content="The clause order, projection forms, source qualifiers, parameters and comments used in TugQL text queries." />
+  <meta name="twitter:image" content="https://tugql.org/og-card.png" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/docs.css" />
+</head>
+<body>
+  <header class="AppHeader"><div class="AppHeader-inner"><a class="AppHeader-brand" href="/"><span class="AppHeader-brand-mark" aria-hidden="true">{}</span><span class="AppHeader-brand-word">TugQL</span></a><nav class="AppHeader-nav" aria-label="Primary"><a href="/">Home</a><a href="/docs/">Docs</a><a href="https://github.com/tugql/tugql">Source</a></nav></div></header>
+  <main class="container docs-page">
+    <nav aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/docs/">Docs</a> / TugQL syntax cheat sheet</nav><h1>TugQL syntax cheat sheet</h1><p class="docs-intro">The clause order, projection forms, source qualifiers, parameters and comments used in TugQL text queries.</p><section><h2>A complete read query</h2><pre><code>parameters (
+  @MinInvoices integer default 2
+)
+from Invoice as i
+where i.InvoiceId &gt; 1
+group by i.CustomerId
+having COUNT(*) &gt;= @MinInvoices
+order by i.CustomerId asc
+select i.CustomerId, COUNT(*) as InvoiceCount</code></pre>
+<p>Write <code>FROM</code>, optional <code>WHERE</code>, <code>GROUP BY</code>, <code>HAVING</code>, <code>ORDER BY</code> and <code>LIMIT</code>, then optional <code>SELECT</code>. The <code>parameters</code> block precedes the query. This example comes from the <a href="https://github.com/dal-go/dalgo/tree/main/tugql">Go implementation's authoring reference</a>; execution still depends on the connected database and adapter.</p></section>
+<section><h2>Projection and aliases</h2><p>A compact projection separates items with commas. A multiline projection puts one item on each line, without commas. Use <code>as</code> for an output alias or source alias.</p>
+<pre><code>from Invoice as i
+select (
+  i.InvoiceId as ID
+  i.CustomerId
+)</code></pre></section>
+<section><h2>Sources and databases</h2><p>Use a dotted source such as <code>sales.Invoice</code> (a schema path) or a slash path such as <code>spaces/{SpaceID}/ext/datatug/projects</code>. A root <code>databases</code> block declares database aliases; <code>alias::source</code> selects a declared database. The dot and double colon have different meanings.</p>
+<pre><code>databases (
+  sales
+  geo
+)
+from sales::Invoice as i
+join geo::Country as c
+  on i.BillingCountry = c.Name
+select i.InvoiceId, c.Name</code></pre>
+<p>A cross-database join requires an explicit <code>on</code> condition. The caller supplies authorized schemas for resolution and a database resolver for execution. The executing tool must check each source against its database access policy. <a href="https://github.com/tugql/tugql/blob/main/reference/cross-database.md">Read the cross-database reference.</a></p></section>
+<section><h2>Comments and saved text</h2><p>TugQL text accepts <code>--</code> and <code>//</code> comments. YAML uses <code>#</code>. A quoted database target is required when it contains <code>//</code>, such as a URL. <a href="https://github.com/tugql/tugql/blob/main/reference/comments.md">Read the comment conversion rules.</a></p>
+<pre><code>from Invoice as i -- billing records
+where i.InvoiceId &gt; 10
+select i.InvoiceId</code></pre></section><p><a href="/docs/">All documentation</a></p>
+  </main>
+  <footer class="AppFooter"><div class="container AppFooter-inner"><a href="/">TugQL</a><a href="https://github.com/tugql/tugql">Specification source</a></div></footer>
+</body>
+</html>

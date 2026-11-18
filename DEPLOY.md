@@ -15,6 +15,15 @@ Alexander: in the Cloudflare dashboard, create one Single Redirect per zone. Use
 
 Zone `tugql.org`:
 
+- Request URL: `http://tugql.org/*`
+- Target URL: `https://tugql.org/${1}`
+- Status code: 301
+- Preserve query string: enabled
+
+The apex HTTP rule is separate from the `www` rule below. The
+`public/_headers` asset adds HSTS on HTTPS responses after deployment;
+HSTS does not replace the first HTTP redirect.
+
 - Request URL: `http*://www.tugql.org/*`
 - Target URL: `https://tugql.org/${2}`
 - Status code: 301
